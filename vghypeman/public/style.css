@@ -27,12 +27,6 @@ body::-webkit-scrollbar {
     border: 0px;
 }
 
-.carousel-inner,
-#picsBTN,
-#youtubeBTN,
-#twitchBTN {
-    visibility: hidden;
-}
 
 .searchBtn {
     background-image: url("../src/assets/SearchIcon.png");
@@ -121,7 +115,7 @@ img {
 }
 
 iframe {
-    background: url("../src/assets/mediaScreen.JPG");
+    background: url("../src/assets/mediaScreen.png");
     background-size: 100% 100%;
 }
 
@@ -178,13 +172,6 @@ body {
 
 button {
     color: green;
-}
-
-.carousel-inner,
-#picsBTN,
-#youtubeBTN,
-#twitchBTN {
-    visibility: hidden;
 }
 
 .slick-prev {
@@ -260,9 +247,6 @@ span {
     color: #66FCF1;
 }
 
-#game-modal {
-    visibility: hidden;
-}
 
 .modalStyle {
     color: #C5C6C7;

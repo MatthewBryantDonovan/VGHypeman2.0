@@ -1,20 +1,27 @@
+
+
 <template>
-  <div class="home">
-    <button type="button" @click="triggerClick()">set</button>
-    <h1>{{text}}</h1>
+  <div class="Home">
+    <Display />
   </div>
 </template>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
 
 <script>
+import Display from './Display/index.vue';
+import axios from '../../node_modules/axios/dist/axios.js'
+
 export default {
   name: "Home",
+  components: {
+    Display
+  },
   data() {
     return {
-      text: "Nice!",
     }
   },
+
   methods:{
         triggerClick: function (){
           axios.get('https://stardateapi.herokuapp.com/api/csd').then(res => {
