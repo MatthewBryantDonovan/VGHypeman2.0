@@ -1,16 +1,28 @@
 <template>
   <div class="home">
-    <h1>test</h1>
+    <button type="button" @click="triggerClick()">set</button>
+    <h1>{{text}}</h1>
   </div>
 </template>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
 <script>
 export default {
-  name: 'Home',
-  props: {
-    msg: String
-  }
-}
+  name: "Home",
+  data() {
+    return {
+      text: "Nice!",
+    }
+  },
+  methods:{
+        triggerClick: function (){
+          axios.get('https://stardateapi.herokuapp.com/api/csd').then(res => {
+            this.text = res.data.a;
+          })     
+        }
+      }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
