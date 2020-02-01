@@ -33,19 +33,67 @@
 </template>
 
 <script>
-
 export default {
   name: "app"
 };
 </script>
 
 <style>
+.searchBtn {
+    background-image: url("../src/assets/SearchIcon.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #0B0C10;
+    margin-left:3px;
+    height: 42px;
+    width: 42px;
+}
+
+.searchBtn:hover {
+    background-image: url("../src/assets/SearchIconHover.png");
+    background-size: 100% 100%;
+    background-color: #0B0C10;
+}
+
+.searchBtn:focus {
+    background-image: url("../src/assets/SearchIconHover.png");
+    background-size: 100% 100%;
+    background-color: #0B0C10;
+    outline: 0;
+}
+
+.official {
+    margin-top: 10px;
+    background-image: url("../src/assets/ScreenShotIcon.png");
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: #0B0C10;
+    height: 50%;
+    width: 50%;
+}
+
+.official:hover {
+    background-image: url("../src/assets/ScreenShotIconHover.png");
+    background-size: 50px 50px;
+    background-color: #0B0C10;
+}
+
+.official:focus {
+    background-image: url("../src/assets/ScreenShotIconHover.png");
+    background-size: 50px 50px;
+    background-color: #0B0C10;
+}
+
+.socialBtn {
+    width: 50px;
+    height: 50px;
+}
+
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
