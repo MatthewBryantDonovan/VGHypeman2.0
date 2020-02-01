@@ -4,7 +4,7 @@ body::-webkit-scrollbar {
   
   .twitch {
       margin-top: 10px;
-      background-image: url("./assets/images/TwitchIcon.png");
+      background-image: url("../images/TwitchIcon.png");
       background-size: 50px 50px;
       background-repeat: no-repeat;
       background-color: #0B0C10;
@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
   
   .youtube {
       margin-top: 10px;
-      background-image: url("./assets/images/YouTubeIcon.png");
+      background-image: url("../images/YouTubeIcon.png");
       background-size: 50px 50px;
       background-repeat: no-repeat;
       background-color: #0B0C10;
@@ -35,7 +35,7 @@ body::-webkit-scrollbar {
   }
   
   .searchBtn {
-      background-image: url("./assets/images/SearchIcon.png");
+      background-image: url("../images/SearchIcon.png");
       background-size: 100% 100%;
       background-repeat: no-repeat;
       background-color: #0B0C10;
@@ -45,13 +45,13 @@ body::-webkit-scrollbar {
   }
   
   .searchBtn:hover {
-      background-image: url("./assets/images/SearchIconHover.png");
+      background-image: url("../images/SearchIconHover.png");
       background-size: 100% 100%;
       background-color: #0B0C10;
   }
   
   .searchBtn:focus {
-      background-image: url("./assets/images/SearchIconHover.png");
+      background-image: url("../images/SearchIconHover.png");
       background-size: 100% 100%;
       background-color: #0B0C10;
       outline: 0;
@@ -60,7 +60,7 @@ body::-webkit-scrollbar {
   
   .official {
       margin-top: 10px;
-      background-image: url("./assets/images/ScreenShotIcon.png");
+      background-image: url("../images/ScreenShotIcon.png");
       background-size: 50px 50px;
       background-repeat: no-repeat;
       background-color: #0B0C10;
@@ -69,37 +69,37 @@ body::-webkit-scrollbar {
   }
   
   .official:hover {
-      background-image: url("./assets/images/ScreenShotIconHover.png");
+      background-image: url("../images/ScreenShotIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
   
   .official:focus {
-      background-image: url("./assets/images/ScreenShotIconHover.png");
+      background-image: url("../images/ScreenShotIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
   
   .youtube:hover {
-      background-image: url("./assets/images/YouTubeIconHover.png");
+      background-image: url("../images/YouTubeIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
   
   .youtube:focus {
-      background-image: url("./assets/images/YouTubeIconHover.png");
+      background-image: url("../images/YouTubeIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
   
   .twitch:hover {
-      background-image: url("./assets/images/TwitchIconHover.png");
+      background-image: url("../images/TwitchIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
   
   .twitch:focus {
-      background-image: url("./assets/images/TwitchIconHover.png");
+      background-image: url("../images/TwitchIconHover.png");
       background-size: 50px 50px;
       background-color: #0B0C10;
   }
@@ -121,7 +121,7 @@ body::-webkit-scrollbar {
   }
   
   iframe {
-      background: url(./assets/images/mediaScreen.JPG);
+      background: url(../images/mediaScreen.JPG);
       background-size: 100% 100%;
   }
   
@@ -207,7 +207,7 @@ body::-webkit-scrollbar {
   }
   
   #VGHlogo {
-      background: url(./assets/images/VGHypemanLogo.png);
+      background: url(../images/VGHypemanLogo.png);
       background-size: 100% 100%;
       background-repeat: no-repeat;
       width: 200px;
@@ -218,7 +218,7 @@ body::-webkit-scrollbar {
   }
   
   #VGHlogoMobile {
-      background: url(./assets/images/VGHMobileColor.png);
+      background: url(../images/VGHMobileColor.png);
       background-size: 100% 100%;
       background-repeat: no-repeat;
       width: 17.5vw;
