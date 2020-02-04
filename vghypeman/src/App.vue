@@ -36,6 +36,7 @@
 import $ from 'jquery';
 // import this anywhere you want to 'Bus' data around
 import { EventBus } from "./components/event-bus";  
+
 export default {
   name: "app",
   components: {

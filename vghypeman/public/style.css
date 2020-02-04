@@ -176,21 +176,21 @@ button {
 
 .slick-prev {
     position: absolute;
-    left: 0;
-    margin-left: 10px;
+    top: 30.2%;
+    left: 0%;
+    padding: 9%;
     z-index: 5;
-    padding: 10vw 15vw 10vw 0vw;
-    width: unset;
-
+    /* opacity 0 atm for testing */
+    opacity: 0;
 }
 
 .slick-next {
     position: absolute;
-    right: 0;
-    margin-right: 10px;
-    z-index: 5;
-    padding: 10vw 0vw 10vw 15vw;
-    width: unset;
+    top: 30.2%;
+    right: 0%;
+    padding: 9%;
+    /* opacity 0 atm for testing */
+    opacity: 0;
 }
 
 #VGHlogo {
