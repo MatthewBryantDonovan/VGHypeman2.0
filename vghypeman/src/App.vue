@@ -15,14 +15,14 @@
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                v-on:keyup.enter="getGame()"
               />
             </li>
             <li>
-              <input class="searchBtn" type id="game-submit" onclick="getGame()" />
-              <!-- <a id="game-submit" href="#" type="submit" onclick="getGame()"></a> -->
+              <button class="searchBtn" type id="game-submit" v-on:click="getGame()"/>
             </li>
             <li>
-              <a class="socialBtn official" href="/myprofile"></a>
+              <!-- <a class="socialBtn official" href="/myprofile"></a> -->
             </li>
           </ul>
         </form>
@@ -33,8 +33,34 @@
 </template>
 
 <script>
+import $ from 'jquery';
+// import this anywhere you want to 'Bus' data around
+import { EventBus } from "./components/event-bus";  
+
 export default {
-  name: "app"
+  name: "app",
+  components: {
+  },
+  data() {
+    return {
+      game: ""
+    }
+  },
+  methods: {
+    getGame: function() {
+      event.preventDefault();
+      this.game = $("#game-entry").val().trim();
+      if (this.game == "") {
+          return;
+      }
+      $("#game-entry").val("");
+      // this.game now has game name for the API
+      // passing it via 'Bus' to Pic,Twitch,Youtube
+      EventBus.$emit("clicked-event", this.game);  
+    }
+  },
+    props: {
+  },
 };
 </script>
 

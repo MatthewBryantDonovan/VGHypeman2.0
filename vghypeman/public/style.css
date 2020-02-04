@@ -4,7 +4,7 @@ body::-webkit-scrollbar {
 
 .twitch {
     margin-top: 10px;
-    background-image: url("../src/assets/TwitchIcon.png");
+    background-image: url("./assets/TwitchIcon.png");
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-color: #0B0C10;
@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 
 .youtube {
     margin-top: 10px;
-    background-image: url("../src/assets/YouTubeIcon.png");
+    background-image: url("./assets/YouTubeIcon.png");
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-color: #0B0C10;
@@ -29,7 +29,7 @@ body::-webkit-scrollbar {
 
 
 .searchBtn {
-    background-image: url("../src/assets/SearchIcon.png");
+    background-image: url("./assets/SearchIcon.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-color: #0B0C10;
@@ -39,13 +39,13 @@ body::-webkit-scrollbar {
 }
 
 .searchBtn:hover {
-    background-image: url("../src/assets/SearchIconHover.png");
+    background-image: url("./assets/SearchIconHover.png");
     background-size: 100% 100%;
     background-color: #0B0C10;
 }
 
 .searchBtn:focus {
-    background-image: url("../src/assets/SearchIconHover.png");
+    background-image: url("./assets/SearchIconHover.png");
     background-size: 100% 100%;
     background-color: #0B0C10;
     outline: 0;
@@ -54,7 +54,7 @@ body::-webkit-scrollbar {
 
 .official {
     margin-top: 10px;
-    background-image: url("../src/assets/ScreenShotIcon.png");
+    background-image: url("./assets/ScreenShotIcon.png");
     background-size: 50px 50px;
     background-repeat: no-repeat;
     background-color: #0B0C10;
@@ -63,37 +63,37 @@ body::-webkit-scrollbar {
 }
 
 .official:hover {
-    background-image: url("../src/assets/ScreenShotIconHover.png");
+    background-image: url("./assets/ScreenShotIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
 
 .official:focus {
-    background-image: url("../src/assets/ScreenShotIconHover.png");
+    background-image: url("./assets/ScreenShotIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
 
 .youtube:hover {
-    background-image: url("../src/assets/YouTubeIconHover.png");
+    background-image: url("./assets/YouTubeIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
 
 .youtube:focus {
-    background-image: url("../src/assets/YouTubeIconHover.png");
+    background-image: url("./assets/YouTubeIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
 
 .twitch:hover {
-    background-image: url("../src/assets/TwitchIconHover.png");
+    background-image: url("./assets/TwitchIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
 
 .twitch:focus {
-    background-image: url("../src/assets/TwitchIconHover.png");
+    background-image: url("./assets/TwitchIconHover.png");
     background-size: 50px 50px;
     background-color: #0B0C10;
 }
@@ -115,7 +115,7 @@ img {
 }
 
 iframe {
-    background: url("../src/assets/mediaScreen.png");
+    background: url("./assets/mediaScreen.png");
     background-size: 100% 100%;
 }
 
@@ -176,25 +176,25 @@ button {
 
 .slick-prev {
     position: absolute;
-    left: 0;
-    margin-left: 10px;
+    top: 30.2%;
+    left: 0%;
+    padding: 9%;
     z-index: 5;
-    padding: 10vw 15vw 10vw 0vw;
-    width: unset;
-
+    /* opacity 0 atm for testing */
+    opacity: 0;
 }
 
 .slick-next {
     position: absolute;
-    right: 0;
-    margin-right: 10px;
-    z-index: 5;
-    padding: 10vw 0vw 10vw 15vw;
-    width: unset;
+    top: 30.2%;
+    right: 0%;
+    padding: 9%;
+    /* opacity 0 atm for testing */
+    opacity: 0;
 }
 
 #VGHlogo {
-    background: url("../src/assets/VGHypemanLogo.png");
+    background: url("./assets/VGHypemanLogo.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 200px;
@@ -205,7 +205,7 @@ button {
 }
 
 #VGHlogoMobile {
-    background: url("../src/assets/VGHMobileColor.png");
+    background: url("./assets/VGHMobileColor.png");
     background-size: 100% 100%;
     background-repeat: no-repeat;
     width: 17.5vw;
