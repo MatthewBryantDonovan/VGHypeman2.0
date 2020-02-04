@@ -54,7 +54,7 @@ export default {
           return;
       }
       $("#game-entry").val("");
-      // this.game now has info for the API
+      // this.game now has game name for the API
       // passing it via 'Bus' to Pic,Twitch,Youtube
       EventBus.$emit("clicked-event", this.game);  
     }
