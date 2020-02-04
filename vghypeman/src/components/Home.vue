@@ -1,7 +1,6 @@
-
-
 <template>
   <div class="Home">
+    <Landing />
     <Display />
   </div>
 </template>
@@ -10,12 +9,14 @@
 
 <script>
 import Display from './Display/index.vue';
+import Landing from './Landing/index.vue';
 import axios from '../../node_modules/axios/dist/axios.js'
 
 export default {
   name: "Home",
   components: {
-    Display
+    Display,
+    Landing
   },
   data() {
     return {
