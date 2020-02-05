@@ -15,7 +15,14 @@ export default {
     return {
       PicShow: true,
       TwitchShow: false,
-      YoutubeShow: false
+      YoutubeShow: false,
+      open: false,
+      modalStyle: {
+        'z-index': 10000000,
+        'display': 'block', 
+        'opacity': 1,
+        'transform': 'scaleX(1); top: 10%'
+      }
     }
   },
   computed: {
@@ -45,6 +52,11 @@ export default {
       this.PicShow = false;
       this.TwitchShow = false;
       this.YoutubeShow = true;
+    },
+
+    showHideModal() {
+      this.open = !this.open;
     }
+
   }
 }
