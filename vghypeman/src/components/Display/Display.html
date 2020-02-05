@@ -1,0 +1,21 @@
+<section class="display">
+  <p class="game-name"></p>
+  <Pic v-show="PicShow" />
+  <Youtube v-show="YoutubeShow" />
+  <Twitch v-show="TwitchShow" />
+
+  <div class="row">
+    <span class="flow-text col s3 left hide-on-med-and-down"></span>
+    <span class="flow-text right hide-on-med-and-down"></span>
+    <div id="picsBTN" class="col l2 m4 s4 center" v-on:click="display_pic()">
+      <a href="#" class="socialBtn official btn"></a>
+    </div>
+    <div id="twitchBTN" class="col l2 m4 s4 center" v-on:click="display_twitch()">
+      <a href="#" class="socialBtn twitch btn"></a>
+    </div>
+    <div id="youtubeBTN" class="col l2 m4 s4 center" v-on:click="display_youtube()">
+      <a href="#" class="socialBtn youtube btn"></a>
+    </div>
+  </div>
+
+</section>

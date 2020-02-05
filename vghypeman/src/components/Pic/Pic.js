@@ -1,0 +1,129 @@
+import $ from 'jquery'
+import Slick from "vue-slick"
+import {
+    EventBus
+} from "../event-bus";
+import "../../../node_modules/slick-carousel/slick/slick.css";
+
+export default {
+    name: 'Pic',
+    components: {
+        Slick
+    },
+    props: [],
+    data() {
+        return {
+            img1: "./assets/BenImage.png",
+            img2: "./assets/mattImage.png",
+            img3: "./assets/zachImage.png",
+            img4: "./assets/calebImage.png",
+            img5: "./assets/YouTubeIconHover.png"
+        }
+    },
+    computed: {},
+    mounted() {
+        $(".pic-slick").slick({
+            // dots: true, FIXME: if we want dots or not
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear'
+        });
+
+        EventBus.$on("clicked-event", game => {
+            this.getGameWebs(game);
+        });
+
+    },
+    methods: {
+
+        getGameWebs: function (game) {
+            var whichPlatforms = [];
+            var itemNo = 0;
+            var currentGame = game;
+            var queryURL = "https://api.rawg.io/api/games?search=" + currentGame;
+            $.ajax({
+                url: queryURL,
+                method: "GET"
+            }).then(function (data0) {
+                this.currentgame = data0.results[0].name;
+                //   window.console.log(data0);
+
+
+                //display game name
+                $(".game-name").html(data0.results[0].name);
+                $("#game-modal").css("visibility", "visible");
+
+                // display platforms
+                if (data0.results[0].platforms.length != 0) {
+                    var platforms = "";
+                    for (var platindex = 0; platindex < data0.results[0].platforms.length; platindex++) {
+                        whichPlatforms.push(data0.results[0].platforms[platindex].platform.name);
+                        platforms += data0.results[0].platforms[platindex].platform.name;
+                        if (platindex < (data0.results[0].platforms.length - 1)) {
+                            platforms += ", ";
+                        }
+                    }
+
+                    $("#game-platforms").html(platforms);
+                }
+
+                // display genres
+                if (data0.results[0].genres.length != 0) {
+                    var genres = "";
+                    for (var genindex = 0; genindex < data0.results[0].genres.length; genindex++) {
+                        genres += data0.results[0].genres[genindex].name;
+                        if (genindex < (data0.results[0].genres.length - 1)) {
+                            genres += ", ";
+                        }
+                    }
+
+                    $("#game-genres").html(genres);
+                }
+
+                //display screenshots
+                for (var ssindex = 0; ssindex < 5; ssindex++) {
+
+                    if (itemNo < 5) {
+                        if (ssindex < data0.results[0].short_screenshots.length) {
+                            $(".Slide" + (ssindex + 1) + "img").attr("src", data0.results[0].short_screenshots[ssindex].image);
+                            itemNo++;
+
+
+                        } else {
+                            $(".Slide" + (ssindex + 1) + "img").attr({
+                                src: "./assets/images/mediaScreen.JPG",
+                                overflow: "hidden"
+                            }); //FIXME: need to put princess in another castle here
+
+                            itemNo++;
+                        }
+                    }
+                }
+
+                //TODO: use this info later for rawg API stuff
+                this.currentGameID = data0.results[0].id;
+
+                //Giantbomb call for name to give to twitch
+                $.ajax({
+                    type: 'GET',
+                    dataType: 'jsonp',
+                    crossDomain: true,
+                    jsonp: 'json_callback',
+                    url: 'https://www.giantbomb.com/api/search/?format=jsonp&api_key=6ce9922ee0247c661db0e2af89818c4e9441b306&query=' + data0.results[0].name,
+                }).done(function (gbdata) {
+                    //window.console.log(gbdata);
+                    //window.console.log(gbdata.results[0].name);
+                    var currentGame = gbdata.results[0].name;
+                    $("#game-plot").html(gbdata.results[0].description);
+                    EventBus.$emit("response-event", currentGame);
+                }).fail(function () {
+                    //window.console.log("error");
+
+                })
+
+            });
+        }
+
+    }
+}
