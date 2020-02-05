@@ -330,3 +330,8 @@ h2 {
         font-size: 1.25rem;
     }
 }
+
+
+.vsm--toggle-btn{
+display: none;
+}

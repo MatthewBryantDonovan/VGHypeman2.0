@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+     <Profile v-show="ProfileShow"/>
     <nav id="hi8 valign-wrapper">
+      <button v-on:click="display_profile()">I'm your profile</button>
       <div class="nav-wrapper">
         <a href="/home">
           <div class="left hide-on-small-only" id="VGHlogo"></div>
@@ -36,15 +38,23 @@
 import $ from 'jquery';
 // import this anywhere you want to 'Bus' data around
 import { EventBus } from "./components/event-bus";  
+import Profile from './components/Profile/index.vue'
 
 export default {
   name: "app",
   components: {
+    Profile
   },
   data() {
     return {
-      game: ""
+      game: "",
+      ProfileShow: false
     }
+  },
+  mounted() {
+    EventBus.$on("close-profile", closeProfile => {   
+      this.ProfileShow = closeProfile;
+  });
   },
   methods: {
     getGame: function() {
@@ -57,6 +67,9 @@ export default {
       // this.game now has game name for the API
       // passing it via 'Bus' to Pic,Twitch,Youtube
       EventBus.$emit("clicked-event", this.game);  
+    },
+     display_profile: function () {
+      this.ProfileShow = true;
     }
   },
     props: {
