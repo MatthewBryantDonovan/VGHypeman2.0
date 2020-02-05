@@ -21,7 +21,8 @@ export default {
       PicShow: true,
       TwitchShow: false,
       YoutubeShow: false,
-      GameinfoShow: false
+      GameinfoShow: false,
+      open: false
     }
   },
   computed: {
