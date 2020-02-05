@@ -27,6 +27,12 @@ body::-webkit-scrollbar {
     border: 0px;
 }
 
+i {
+    background-color: #000000;
+    color: #45A29E;
+    cursor: pointer;
+}
+
 
 .searchBtn {
     background-image: url("./assets/SearchIcon.png");
