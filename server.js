@@ -12,7 +12,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static('./vghypeman/dist'));
+app.use('/', express.static('./vghypeman/dist'));
 
 app.use(routes)
 
