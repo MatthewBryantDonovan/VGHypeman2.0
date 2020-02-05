@@ -240,13 +240,14 @@ span {
 }
 
 .game-name {
+    font-size: 20px;
     text-align: center;
     color: #ffffff;
 }
 
 
 .game-title {
-    text-align: left;
+    text-align: center;
     color: black;
 }
 
