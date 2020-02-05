@@ -1,14 +1,21 @@
 import Youtube from '../Youtube/index.vue';
 import Twitch from '../Twitch/index.vue';
 import Pic from '../Pic/index.vue';
+import Profile from '../Profile/index.vue'
+import 'materialize-css/js/modal.js';
 import $ from 'jquery'
+import modal from 'vue';
+
+
 
 export default {
   name: 'display',
   components: {
     Youtube,
     Twitch,
-    Pic
+    Pic,
+    modal,
+    Profile
   },
   props: [],
   data() {
@@ -16,22 +23,15 @@ export default {
       PicShow: true,
       TwitchShow: false,
       YoutubeShow: false,
-      open: false,
-      modalStyle: {
-        'z-index': 10000000,
-        'display': 'block', 
-        'opacity': 1,
-        'transform': 'scaleX(1); top: 10%'
-      }
+      showModal: false
     }
   },
   computed: {
 
   },
   mounted() {
-
   },
-  methods: {
+  methods: {    
 
     display_pic: function () {
       $( ".slick-next" ).click();
@@ -54,8 +54,8 @@ export default {
       this.YoutubeShow = true;
     },
 
-    showHideModal() {
-      this.open = !this.open;
+    showHideModal: function() {
+      
     }
 
   }
