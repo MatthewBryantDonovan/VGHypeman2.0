@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Profile v-show="ProfileShow" />
+    <div class='container'>
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">
         <a href="#" v-on:click="close_landing()">
@@ -24,7 +25,10 @@
         </form>
       </div>
     </nav>
+    </div>
+    <div class='container'>
     <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -88,4 +92,8 @@
     text-align: center;
     color: #2c3e50;
   }
+
+  .container {
+    width: 100vw;
+}
 </style>
