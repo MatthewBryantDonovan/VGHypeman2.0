@@ -21,7 +21,13 @@ export default {
       PicShow: true,
       TwitchShow: false,
       YoutubeShow: false,
-      GameinfoShow: false
+      open: false,
+      modalStyle: {
+        'z-index': 10000000,
+        'display': 'block', 
+        'opacity': 1,
+        'transform': 'scaleX(1); top: 10%'
+      }
     }
   },
   computed: {
@@ -55,8 +61,8 @@ export default {
       this.YoutubeShow = true;
     },
 
-    display_gameinfo: function () {
-      this.GameinfoShow = true;
+    showHideModal() {
+      this.open = !this.open;
     }
 
   }

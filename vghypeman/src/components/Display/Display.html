@@ -1,7 +1,17 @@
 <section class="display">
   <p class="game-name"></p>
-  <button id="" class="" v-on:click="display_gameinfo()">HAHAHAHAHA
-  </button>
+
+ <i class="material-icons" v-on:click="showHideModal">info</i>
+  
+  <!-- Modal Structure -->
+  <div :class="['modal', open ? 'open' : '']" :style="[open ? modalStyle: '']">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+      <div class="btn modal-trigger" v-on:click="showHideModal">Hide Modal</div>
+    </div>
+  </div>
+
   <Pic v-show="PicShow" />
   <Youtube v-show="YoutubeShow" />
   <Twitch v-show="TwitchShow" />
