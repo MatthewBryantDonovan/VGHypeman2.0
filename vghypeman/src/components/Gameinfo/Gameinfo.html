@@ -1,26 +1,19 @@
-
 <section class="gameinfo">
-<div v-show="show">
+  <div v-show="show">
 
-  
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-          This is the default tile!
-          
-          <button
-          type="button"
-          class="btn-close"
-          v-on:click="close()"
-          >
-          x
-        </button>
-      </slot>
+
+    <div class="modal-backdrop">
+      <div class="modal">
+        <header class="modal-header">
+          <slot name="header">
+
+            <button type="button" class="btn-close right" v-on:click="close()">
+              x
+            </button>
+          </slot>
         </header>
         <section class="modal-body">
           <slot name="body">
-            I'm the default body!
             <h3 id="gameNameModal" class="game-name game-title"></h3>
             <h5>Genre: </h5>
             <h6 id="game-genres"></h6>
@@ -30,23 +23,16 @@
             <h6 id="game-released"></h6>
             <h6 id="game-plot"></h6>
           </slot>
-         </section>
-         <footer class="modal-footer">
-           <slot name="footer">
-              I'm the default footer!
-              
-              <button
-              type="button"
-              class="btn-green"
-              v-on:click="close()"
-                >
-                Close me!
-              </button>
+        </section>
+        <footer class="modal-footer sticky-footer">
+          <slot name="footer">
+            <button type="button" class="btn-green" v-on:click="close()">
+              Close
+            </button>
           </slot>
         </footer>
       </div>
     </div>
   </div>
-    
-</section>
 
+</section>

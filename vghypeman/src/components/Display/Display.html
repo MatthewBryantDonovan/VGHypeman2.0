@@ -1,22 +1,13 @@
 <section class="display">
-  <p class="game-name"></p>
 
- <i class="material-icons" v-on:click="showHideModal">info</i>
-  
-  <!-- Modal Structure -->
-  <div :class="['modal', open ? 'open' : '']" :style="[open ? modalStyle: '']">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-      <div class="btn modal-trigger" v-on:click="showHideModal">Hide Modal</div>
-    </div>
-  </div>
-
-  <Pic v-show="PicShow" />
-  <Youtube v-show="YoutubeShow" />
-  <Twitch v-show="TwitchShow" />
-  <Gameinfo v-show="GameinfoShow"/>
-
+  <span class="game-name"></span>
+    <i v-on:click="display_gameinfo()" class="material-icons">info</i>
+ 
+ <Pic v-show="PicShow" />
+ <Youtube v-show="YoutubeShow" />
+ <Twitch v-show="TwitchShow" />
+ <Gameinfo v-show="GameinfoShow"/>
+ 
   <div class="row">
     <span class="flow-text col s3 left hide-on-med-and-down"></span>
     <span class="flow-text right hide-on-med-and-down"></span>
