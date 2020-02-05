@@ -3,10 +3,10 @@
     <Profile v-show="ProfileShow" />
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">
-        <a href="/home">
+        <a href="#" v-on:click="close_landing()">
           <div class="left hide-on-small-only" id="VGHlogo"></div>
         </a>
-        <div class="left show-on-small hide-on-med-and-up" id="VGHlogoMobile" href="/home"></div>
+        <div class="left show-on-small hide-on-med-and-up" id="VGHlogoMobile" href="#" v-on:click="close_landing()"></div>
         <form action>
           <ul id="nav-mobile" class="right">
             <li>
@@ -44,7 +44,8 @@
     data() {
       return {
         game: "",
-        ProfileShow: false
+        ProfileShow: false,
+        closeLanding: false
       }
     },
     mounted() {
@@ -63,9 +64,14 @@
         // this.game now has game name for the API
         // passing it via 'Bus' to Pic,Twitch,Youtube
         EventBus.$emit("clicked-event", this.game);
+        EventBus.$emit("close-landing", this.closeLanding);
+        
       },
       display_profile: function () {
         this.ProfileShow = true;
+      },
+      close_landing: function () {
+        EventBus.$emit("close-landing", this.closeLanding);
       }
     },
     props: {},
