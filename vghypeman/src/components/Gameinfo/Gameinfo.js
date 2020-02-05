@@ -10,7 +10,6 @@ export default {
   props: [],
   data () {
     return {
-      show: true,
       closeGameinfo: false
     }
   },

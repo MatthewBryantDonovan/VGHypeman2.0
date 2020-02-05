@@ -6,6 +6,9 @@ import $ from 'jquery'
 import {
   EventBus
 } from "../event-bus";
+import Profile from '../Profile/index.vue'
+
+
 
 export default {
   name: 'display',
@@ -13,7 +16,8 @@ export default {
     Youtube,
     Twitch,
     Pic,
-    Gameinfo
+    Gameinfo,
+    Profile
   },
   props: [],
   data() {
@@ -33,7 +37,7 @@ export default {
       this.GameinfoShow = closeGameinfo;
   });
   },
-  methods: {
+  methods: {    
 
     display_pic: function () {
       $( ".slick-next" ).click();
