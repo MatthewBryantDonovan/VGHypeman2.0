@@ -1,5 +1,41 @@
 
 <section class="gameinfo">
-  <h1>gameinfo Component</h1>
+
+    <div class="modal-backdrop">
+      <div class="modal">
+        <header class="modal-header">
+          <slot name="header">
+            This is the default tile!
+  
+            <button
+              type="button"
+              class="btn-close"
+              v-on:click="hide_gameinfo()"
+            >
+              x
+            </button>
+          </slot>
+        </header>
+        <section class="modal-body">
+          <slot name="body">
+            I'm the default body!
+          </slot>
+         </section>
+         <footer class="modal-footer">
+            <slot name="footer">
+              I'm the default footer!
+  
+              <button
+                type="button"
+                class="btn-green"
+                v-on:click="hide_gameinfo()"
+              >
+                Close me!
+            </button>
+          </slot>
+        </footer>
+      </div>
+    </div>
+  
 </section>
 

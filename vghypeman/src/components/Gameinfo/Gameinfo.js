@@ -1,7 +1,10 @@
+import Display from '../Display/index.vue';
 
 export default {
   name: 'gameinfo',
-  components: {},
+  components: {
+    Display
+  },
   props: [],
   data () {
     return {
@@ -15,7 +18,9 @@ export default {
 
   },
   methods: {
-
+    close() {
+      this.$emit('close');
+    },
   }
 }
 
