@@ -1,37 +1,35 @@
 <section class="gameinfo">
-  <div v-show="show">
 
+  <div class="modal-backdrop">
+    <div class="modal">
+      <header class="modal-header">
+        <slot name="header">
+          This is the default tile!
 
-    <div class="modal-backdrop">
-      <div class="modal">
-        <header class="modal-header">
-          <slot name="header">
-
-            <button type="button" class="btn-close right" v-on:click="close()">
-              x
-            </button>
-          </slot>
-        </header>
-        <section class="modal-body">
-          <slot name="body">
-            <h3 id="gameNameModal" class="game-name game-title"></h3>
-            <h5>Genre: </h5>
-            <h6 id="game-genres"></h6>
-            <h5>Available On: </h5>
-            <h6 id="game-platforms"></h6>
-            <h5>Release Date: </h5>
-            <h6 id="game-released"></h6>
-            <h6 id="game-plot"></h6>
-          </slot>
-        </section>
-        <footer class="modal-footer sticky-footer">
-          <slot name="footer">
-            <button type="button" class="btn-green" v-on:click="close()">
-              Close
-            </button>
-          </slot>
-        </footer>
-      </div>
+          <button type="button" class="btn-close" v-on:click="close()">
+            x
+          </button>
+        </slot>
+      </header>
+      <section class="modal-body">
+        <slot name="body">
+          <h3 id="gameNameModal" class="game-name game-title"></h3>
+          <h5>Genre: </h5>
+          <h6 id="game-genres"></h6>
+          <h5>Available On: </h5>
+          <h6 id="game-platforms"></h6>
+          <h5>Release Date: </h5>
+          <h6 id="game-released"></h6>
+          <h6 id="game-plot"></h6>
+        </slot>
+      </section>
+      <footer class="modal-footer sticky-footer">
+        <slot name="footer">
+          <button type="button" class="btn-green" v-on:click="close()">
+            Close
+          </button>
+        </slot>
+      </footer>
     </div>
   </div>
 
