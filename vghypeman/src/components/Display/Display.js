@@ -3,6 +3,9 @@ import Twitch from '../Twitch/index.vue';
 import Pic from '../Pic/index.vue';
 import Gameinfo from '../Gameinfo/index.vue';
 import $ from 'jquery'
+import {
+  EventBus
+} from "../event-bus";
 
 export default {
   name: 'display',
@@ -25,7 +28,9 @@ export default {
 
   },
   mounted() {
-
+    EventBus.$on("close-gameinfo", closeGameinfo => {   
+      this.GameinfoShow = closeGameinfo;
+  });
   },
   methods: {
 
@@ -51,10 +56,6 @@ export default {
     },
 
     display_gameinfo: function () {
-      this.GameinfoShow = true;
-    },
-
-    hide_gameinfo: function () {
       this.GameinfoShow = true;
     }
 
