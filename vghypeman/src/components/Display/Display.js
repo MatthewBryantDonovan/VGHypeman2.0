@@ -24,7 +24,8 @@ export default {
       TwitchShow: false,
       YoutubeShow: false,
       GameinfoShow: false,
-      open: false
+      open: false,
+      iShow: false
     }
   },
   computed: {
@@ -33,6 +34,9 @@ export default {
   mounted() {
     EventBus.$on("close-gameinfo", closeGameinfo => {   
       this.GameinfoShow = closeGameinfo;
+  });
+    EventBus.$on("i-show", iShow => {   
+      this.iShow = iShow;
   });
   },
   methods: {    

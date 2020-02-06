@@ -52,6 +52,8 @@ export default {
 
                 //display game name
                 $(".game-name").html(data0.results[0].name);
+                var iShow = true;
+                EventBus.$emit("i-show", iShow);
                 $("#game-modal").css("visibility", "visible");
 
                 // display platforms
