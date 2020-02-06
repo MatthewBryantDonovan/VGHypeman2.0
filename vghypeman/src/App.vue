@@ -19,7 +19,7 @@
               <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
             </li>
             <li>
-              <button v-on:click="display_profile()" class="userBtn" type="button"></button>
+              <button v-on:click="display_profile()" class="userBtn" type="button" @click.stop="show"></button>
               
             </li>
           </ul>

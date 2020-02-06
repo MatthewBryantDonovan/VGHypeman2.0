@@ -20,8 +20,21 @@ export default {
 
   },
   methods: {
+    handleFocus() {
+      
+      //sum here
+      // EventBus.$emit("close-logregister", this.LoginShow);
+    },
+
+    handleFocusOut() {
+     
+      //sum more here
+      // EventBus.$emit("close-logregister", this.closeLogregister);
+    },
+
     close() {
       EventBus.$emit("close-logregister", this.closeLogregister);
+
     },
     display_register: function () {
       this.LoginShow = false;
