@@ -1,3 +1,6 @@
+#loginStyle{
+  width: 90%;
+}
 
 .modal-backdrop {
       position: fixed;
@@ -17,6 +20,7 @@
       overflow-x: auto;
       display: flex;
       flex-direction: column;
+      width: 25%;
     }
     
     .modal-header,

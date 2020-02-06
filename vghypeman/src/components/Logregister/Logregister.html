@@ -1,11 +1,10 @@
-
 <section class="Logregister">
-  
+
   <div class="modal-backdrop" style="z-index: 55;">
     <div class="modal">
       <header class="modal-header">
         <slot name="header">
-            <h2><strong>VGHYPEMAN</strong></h2>
+          <h2><strong>VGHYPEMAN</strong></h2>
 
           <button type="button" class="btn-close" v-on:click="close()">
             x
@@ -15,25 +14,44 @@
       <section class="modal-body" id="modal-big-body">
         <slot name="body">
           <div v-show="LoginShow">
-            <p>Log in stuff here!</p>
-             <button type="button" v-on:click="display_register" >Register button</button>
-             <button type="button" v-on:click="logged_in" >I AM THE CHEAT BUTTON TO CHEAT LOG IN</button>
-           </div>
-           <div v-show="RegisterShow">
+            <h4 class="center">LOGIN</h4>
+
+            <div class="container" id="loginStyle">
+              <!-- Begin input field (LOGIN) -->
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+            </div> <!-- End input field (LOGIN) -->
+
+              <button class="btn left" type="button" v-on:click="display_register">Register button</button>
+              <button class="btn right" type="button" v-on:click="logged_in">LOG IN</button>
+            
+          </div>
+          <div v-show="RegisterShow">
             <p>Register stuff here!</p>
-             <button type="button" v-on:click="display_login" >Login button</button>
-           </div>
+            <button type="button" v-on:click="display_login">Login button</button>
+          </div>
         </slot>
       </section>
-      <footer class="modal-footer" id="modal-footer">
+      <!-- <footer class="modal-footer" id="modal-footer">
         <slot name="footer">
           <button type="button" class="btn-green" v-on:click="close()">
             Close
           </button>
         </slot>
-      </footer>
+      </footer> -->
     </div>
   </div>
 
 </section>
-
