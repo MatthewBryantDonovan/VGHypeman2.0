@@ -150,6 +150,10 @@ iframe {
     background: url("./assets/mediaScreen.png");
     background-size: 100% 100%;
 }
+img {
+    background: black;
+    background-size: 100% 100%;
+}
 
 #hi8 {
     height: 6.75vh;

@@ -13,11 +13,11 @@ export default {
     props: [],
     data() {
         return {
-            img1: "./assets/BenImage.png",
-            img2: "./assets/mattImage.png",
-            img3: "./assets/zachImage.png",
-            img4: "./assets/calebImage.png",
-            img5: "./assets/YouTubeIconHover.png"
+            img1: "./assets/mediaScreen.png",
+            img2: "./assets/mediaScreen.png",
+            img3: "./assets/mediaScreen.png",
+            img4: "./assets/mediaScreen.png",
+            img5: "./assets/mediaScreen.png"
         }
     },
     computed: {},
@@ -92,9 +92,9 @@ export default {
 
                         } else {
                             $(".Slide" + (ssindex + 1) + "img").attr({
-                                src: "./assets/images/mediaScreen.JPG",
+                                src: "./assets/MediaInAnotherCastle.png",
                                 overflow: "hidden"
-                            }); //FIXME: need to put princess in another castle here
+                            });
 
                             itemNo++;
                         }

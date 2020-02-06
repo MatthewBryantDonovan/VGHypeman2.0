@@ -68,6 +68,15 @@
     methods: {
       getGame: function () {
         event.preventDefault();
+        $(".car-img").attr("src", "./assets/MediaInAnotherCastle.png");
+        $(".car-twitch").attr("src", "");
+        $(".car-youtube").attr("src", "");
+        $(".game-name").html("");
+        $("#game-genres").html("");
+        $("#game-platforms").html("");
+        $("#game-released").html("");
+        $("#game-plot").html("");
+
         this.game = $("#game-entry").val().trim();
         if (this.game == "") {
           return;
