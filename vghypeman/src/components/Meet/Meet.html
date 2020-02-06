@@ -1,0 +1,28 @@
+<section class="meet">
+
+    <div class="modal-backdrop">
+      <div class="modal">
+        
+          
+  
+            
+          
+        <section class="modal-body" id="modal-big-body">
+          <button type="button" class="btn-close" v-on:click="close()" style="float: right;">
+            x
+          </button>
+          <slot name="body">
+            
+          </slot>
+        </section>
+        <footer class="modal-footer" id="modal-footer">
+          <slot name="footer">
+            <button type="button" class="btn-green" v-on:click="close()">
+              Close
+            </button>
+          </slot>
+        </footer>
+      </div>
+    </div>
+  
+  </section>
