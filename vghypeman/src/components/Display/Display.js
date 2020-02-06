@@ -1,14 +1,21 @@
 import Youtube from '../Youtube/index.vue';
 import Twitch from '../Twitch/index.vue';
 import Pic from '../Pic/index.vue';
+import Gameinfo from '../Gameinfo/index.vue';
 import $ from 'jquery'
+import {
+  EventBus
+} from "../event-bus";
+
+
 
 export default {
   name: 'display',
   components: {
     Youtube,
     Twitch,
-    Pic
+    Pic,
+    Gameinfo
   },
   props: [],
   data() {
@@ -16,22 +23,19 @@ export default {
       PicShow: true,
       TwitchShow: false,
       YoutubeShow: false,
-      open: false,
-      modalStyle: {
-        'z-index': 10000000,
-        'display': 'block', 
-        'opacity': 1,
-        'transform': 'scaleX(1); top: 10%'
-      }
+      GameinfoShow: false,
+      open: false
     }
   },
   computed: {
 
   },
   mounted() {
-
+    EventBus.$on("close-gameinfo", closeGameinfo => {   
+      this.GameinfoShow = closeGameinfo;
+  });
   },
-  methods: {
+  methods: {    
 
     display_pic: function () {
       $( ".slick-next" ).click();
@@ -54,8 +58,8 @@ export default {
       this.YoutubeShow = true;
     },
 
-    showHideModal() {
-      this.open = !this.open;
+    display_gameinfo: function () {
+      this.GameinfoShow = true;
     }
 
   }

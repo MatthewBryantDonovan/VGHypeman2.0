@@ -2,12 +2,21 @@ import Vue from 'vue';
 import App from './App.vue';
 import VueRouter from 'vue-router';
 import Home from './components/Home.vue';
+import Youtube from './components/Youtube/index.vue'
+import $ from 'jquery';  // materialize requires jquery for most functionality
+import jQuery from 'jquery';
+import Materialize from 'materialize-css';
+
+// export for others scripts to use
+window.$ = $;
+window.jQuery = jQuery;
+window.Materialize = Materialize;
 
 Vue.use(VueRouter);
 
 const routes = [
   { path: '/', component: Home },
-  // { path: 'myprofile', component: Profile }
+  { path: 'youtube', component: Youtube }
 ];
 
 const router = new VueRouter({
