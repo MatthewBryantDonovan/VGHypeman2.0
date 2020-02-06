@@ -49,7 +49,8 @@
       return {
         game: "",
         ProfileShow: false,
-        closeLanding: false
+        closeLanding: false,
+        login: false
       }
     },
     mounted() {
@@ -72,11 +73,16 @@
         
       },
       display_profile: function () {
-        this.ProfileShow = true;
+        if(this.login == false){
+          //display login modal
+        } else {
+          this.ProfileShow = true;
+        }
       },
       close_landing: function () {
         EventBus.$emit("close-landing", this.closeLanding);
-      }
+      },
+
     },
     props: {},
   };

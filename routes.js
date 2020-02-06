@@ -76,7 +76,7 @@ router.put("/api/update/:id/:type", function (req, res) {
         res.json(dbUser);
       });
       break;
-    case "email":
+    case "favorite":
       db.user.update(
         req.body, {
           where: {

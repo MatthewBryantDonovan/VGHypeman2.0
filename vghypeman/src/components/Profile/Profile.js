@@ -15,7 +15,13 @@ export default {
   data () {
     return {
       menu: [],
-      closeProfile: false
+      closeProfile: false,
+      myGames: [],
+      myGamesArt: [],
+      username: null,
+      picture: null,
+      email: null,
+      login: false
     }
   },
   computed: {
@@ -28,6 +34,12 @@ export default {
   methods: {
     close() {
       EventBus.$emit("close-profile", this.closeProfile);
+    },
+    unFav(noLike, noLikeArt){
+      this.myGames.filter(noLike);
+      this.myGamesArt.filter(noLikeArt);
+      //stringify the list
+      //send via axios
     }
   }
 }
