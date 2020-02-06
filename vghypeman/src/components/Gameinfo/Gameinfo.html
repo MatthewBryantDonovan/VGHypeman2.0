@@ -2,16 +2,15 @@
 
   <div class="modal-backdrop">
     <div class="modal">
-      <header class="modal-header">
-        <slot name="header">
-            <h2><strong>VGHYPEMAN</strong></h2>
+      
+        
 
-          <button type="button" class="btn-close" v-on:click="close()">
-            x
-          </button>
-        </slot>
-      </header>
+          
+        
       <section class="modal-body" id="modal-big-body">
+        <button type="button" class="btn-close" v-on:click="close()" style="float: right;">
+          x
+        </button>
         <slot name="body">
           <h3 id="gameNameModal" class="game-name game-title"></h3>
           <h5>Genre: </h5>

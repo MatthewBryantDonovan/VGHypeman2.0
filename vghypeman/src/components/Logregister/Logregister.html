@@ -13,9 +13,11 @@
       </header> -->
       <section class="modal-body" id="modal-big-body">
         <slot name="body">
-          <div v-show="LoginShow">
+          <div v-show="LoginShow"><button type="button" class="btn-close" v-on:click="close()" style="float: right;">
+            x
+          </button>
             <h4 class="center">LOGIN</h4>
-
+            
             <div class="container" id="loginStyle">
               <!-- Begin input field (LOGIN) -->
 
