@@ -14,6 +14,15 @@
       </header>
       <section class="modal-body" id="modal-big-body">
         <slot name="body">
+          <div v-show="LoginShow">
+            <p>Log in stuff here!</p>
+             <button type="button" v-on:click="display_register" >Register button</button>
+             <button type="button" v-on:click="logged_in" >I AM THE CHEAT BUTTON TO CHEAT LOG IN</button>
+           </div>
+           <div v-show="RegisterShow">
+            <p>Register stuff here!</p>
+             <button type="button" v-on:click="display_login" >Login button</button>
+           </div>
         </slot>
       </section>
       <footer class="modal-footer" id="modal-footer">

@@ -54,7 +54,7 @@
         ProfileShow: false,
         closeLanding: false,
         LogregisterShow: false,
-        LoggedIn: true
+        LoggedIn: false
       }
     },
     mounted() {
@@ -63,6 +63,10 @@
       });
       EventBus.$on("close-logregister", closeLogregister => {
         this.LogregisterShow = closeLogregister;
+      });
+      EventBus.$on("logged-in", LoggedIn => {
+        this.LoggedIn = LoggedIn;
+        $(".userBtn").click();
       });
     },
     methods: {
