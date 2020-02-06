@@ -19,8 +19,8 @@
               <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
             </li>
             <li>
-              <button v-on:click="display_profile()" class="userBtn"></button>
-              <!-- <a class="socialBtn official" href="/myprofile"></a> -->
+              <button v-on:click="display_profile()" class="userBtn" type="button"></button>
+              
             </li>
           </ul>
         </form>
@@ -54,7 +54,7 @@
         ProfileShow: false,
         closeLanding: false,
         LogregisterShow: false,
-        LoggedIn: false
+        LoggedIn: true
       }
     },
     mounted() {
@@ -101,7 +101,7 @@
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /* text-align: center; */
     color: #2c3e50;
   }
 
