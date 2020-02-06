@@ -13,11 +13,6 @@ export default {
   props: {},
   data() {
     return {
-      img1: "./assets/BenImage.png",
-      img2: "./assets/mattImage.png",
-      img3: "./assets/zachImage.png",
-      img4: "./assets/calebImage.png",
-      img5: "./assets/YouTubeIconHover.png",
     }
   },
   computed: {
