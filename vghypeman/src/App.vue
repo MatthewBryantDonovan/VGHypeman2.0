@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Profile v-show="ProfileShow" />
+    <Profile v-show="ProfileShow" v-on:focus="ProfileShow = false"/>
     <div class='container'>
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">

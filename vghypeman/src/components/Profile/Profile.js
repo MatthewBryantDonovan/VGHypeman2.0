@@ -28,6 +28,7 @@ export default {
   methods: {
     close() {
       EventBus.$emit("close-profile", this.closeProfile);
+      window.console.log('blur?')
     }
   }
 }
