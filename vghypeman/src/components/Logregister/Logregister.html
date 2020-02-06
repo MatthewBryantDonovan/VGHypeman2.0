@@ -34,13 +34,41 @@
               </div>
             </div> <!-- End input field (LOGIN) -->
 
-              <button class="btn left" type="button" v-on:click="display_register">Register button</button>
-              <button class="btn right" type="button" v-on:click="logged_in">LOG IN</button>
-            
+            <button class="btn left" type="button" v-on:click="display_register">REGISTER ACCOUNT</button>
+            <button class="btn right" type="button" v-on:click="logged_in">LOG IN</button>
+
           </div>
           <div v-show="RegisterShow">
-            <p>Register stuff here!</p>
-            <button type="button" v-on:click="display_login">Login button</button>
+            <h4 class="center">REGISTER</h4>
+
+            <div class="container" id="registerStyle">
+              <!-- Begin input field REGISTER -->
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="username" type="email" class="validate">
+                  <label for="username">Username</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="email" type="email" class="validate">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="password" type="password" class="validate">
+                  <label for="password">Password</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- End input field REGISTER -->
+            <button class="btn left" type="button" v-on:click="display_login">BACK</button>
+            <button class="btn right" type="button" v-on:click="display_login">REGISTER ACCOUNT</button>
           </div>
         </slot>
       </section>
