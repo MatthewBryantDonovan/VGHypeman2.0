@@ -46,7 +46,7 @@ $('body').mousedown(function( event ) {
   methods: {
     close() {
       EventBus.$emit("close-gameinfo", this.closeGameinfo);
-    },
+    }
   }
 }
 

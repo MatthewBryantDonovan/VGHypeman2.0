@@ -6,7 +6,6 @@ import $ from 'jquery'
 import {
   EventBus
 } from "../event-bus";
-import Profile from '../Profile/index.vue'
 
 
 
@@ -16,8 +15,7 @@ export default {
     Youtube,
     Twitch,
     Pic,
-    Gameinfo,
-    Profile
+    Gameinfo
   },
   props: [],
   data() {
