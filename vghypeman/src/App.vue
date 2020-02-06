@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Profile v-show="ProfileShow" />
+    <Profile v-show="ProfileShow"/>
+    <Logregister v-show="LogregisterShow"/>
     <div class='container'>
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">
@@ -39,22 +40,29 @@
     EventBus
   } from "./components/event-bus";
   import Profile from './components/Profile/index.vue'
+  import Logregister from './components/Logregister/index.vue'
 
   export default {
     name: "app",
     components: {
-      Profile
+      Profile,
+      Logregister
     },
     data() {
       return {
         game: "",
         ProfileShow: false,
-        closeLanding: false
+        closeLanding: false,
+        LogregisterShow: false,
+        LoggedIn: false
       }
     },
     mounted() {
       EventBus.$on("close-profile", closeProfile => {
         this.ProfileShow = closeProfile;
+      });
+      EventBus.$on("close-logregister", closeLogregister => {
+        this.LogregisterShow = closeLogregister;
       });
     },
     methods: {
@@ -72,7 +80,11 @@
         
       },
       display_profile: function () {
-        this.ProfileShow = true;
+        if(this.LoggedIn == false){
+          this.LogregisterShow = true;
+        } else {
+          this.ProfileShow = true;          
+        }
       },
       close_landing: function () {
         EventBus.$emit("close-landing", this.closeLanding);

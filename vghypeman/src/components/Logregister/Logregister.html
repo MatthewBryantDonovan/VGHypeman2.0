@@ -1,0 +1,38 @@
+
+<section class="Logregister">
+  
+  <div class="modal-backdrop" style="z-index: 55;">
+    <div class="modal">
+      <header class="modal-header">
+        <slot name="header">
+            <h2><strong>VGHYPEMAN</strong></h2>
+
+          <button type="button" class="btn-close" v-on:click="close()">
+            x
+          </button>
+        </slot>
+      </header>
+      <section class="modal-body" id="modal-big-body">
+        <slot name="body">
+          <h3 id="gameNameModal" class="game-name game-title"></h3>
+          <h5>Genre: </h5>
+          <h6 id="game-genres"></h6>
+          <h5>Available On: </h5>
+          <h6 id="game-platforms"></h6>
+          <h5>Release Date: </h5>
+          <h6 id="game-released"></h6>
+          <h6 id="game-plot"></h6>
+        </slot>
+      </section>
+      <footer class="modal-footer" id="modal-footer">
+        <slot name="footer">
+          <button type="button" class="btn-green" v-on:click="close()">
+            Close
+          </button>
+        </slot>
+      </footer>
+    </div>
+  </div>
+
+</section>
+
