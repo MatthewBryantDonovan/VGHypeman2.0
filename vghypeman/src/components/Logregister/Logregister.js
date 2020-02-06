@@ -1,15 +1,14 @@
 import {
   EventBus
 } from "../event-bus";
-import $ from 'jquery'
 
 export default {
-  name: 'ogregister',
+  name: 'Logregister',
   components: {},
   props: [],
   data () {
     return {
-
+      closeLogregister: false
     }
   },
   computed: {
@@ -19,7 +18,9 @@ export default {
 
   },
   methods: {
-
+    close() {
+      EventBus.$emit("close-logregister", this.closeLogregister);
+    }
   }
 }
 
