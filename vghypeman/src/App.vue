@@ -18,7 +18,7 @@
               <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
             </li>
             <li>
-              <button v-on:click="display_profile()">file</button>
+              <button v-on:click="display_profile()" class="userBtn"></button>
               <!-- <a class="socialBtn official" href="/myprofile"></a> -->
             </li>
           </ul>
