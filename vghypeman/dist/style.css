@@ -45,6 +45,31 @@ i {
     width: 42px;
 }
 
+.userBtn {
+    background-image: url("./assets/UserProfileImage.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #0B0C10;
+    margin-left:3px;
+    margin-top: 10px;
+    height: 42px;
+    width: 42px;
+    border: none;
+}
+
+.userBtn:hover {
+    background-image: url("./assets/userProfileHover.png");
+    background-size: 100% 100%;
+    background-color: #0B0C10;
+}
+
+.userBtn:focus {
+    background-image: url("./assets/userProfileHover.png");
+    background-size: 100% 100%;
+    background-color: #0B0C10;
+    outline: 0;
+}
+
 .searchBtn:hover {
     background-image: url("./assets/SearchIconHover.png");
     background-size: 100% 100%;
@@ -123,6 +148,10 @@ img {
 
 iframe {
     background: url("./assets/mediaScreen.png");
+    background-size: 100% 100%;
+}
+img {
+    background: black;
     background-size: 100% 100%;
 }
 

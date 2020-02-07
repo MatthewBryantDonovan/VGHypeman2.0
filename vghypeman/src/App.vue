@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Profile v-show="ProfileShow" />
+    <Profile v-show="ProfileShow"/>
+    <Logregister v-show="LogregisterShow"/>
     <div class='container'>
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">
@@ -18,8 +19,8 @@
               <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
             </li>
             <li>
-              <button v-on:click="display_profile()">file</button>
-              <!-- <a class="socialBtn official" href="/myprofile"></a> -->
+              <button v-on:click="display_profile()" class="userBtn" type="button" @click.stop="show"></button>
+              
             </li>
           </ul>
         </form>
@@ -39,28 +40,47 @@
     EventBus
   } from "./components/event-bus";
   import Profile from './components/Profile/index.vue'
+  import Logregister from './components/Logregister/index.vue'
 
   export default {
     name: "app",
     components: {
-      Profile
+      Profile,
+      Logregister
     },
     data() {
       return {
         game: "",
         ProfileShow: false,
         closeLanding: false,
-        login: false
+        LogregisterShow: false,
+        LoggedIn: false
       }
     },
     mounted() {
       EventBus.$on("close-profile", closeProfile => {
         this.ProfileShow = closeProfile;
       });
+      EventBus.$on("close-logregister", closeLogregister => {
+        this.LogregisterShow = closeLogregister;
+      });
+      EventBus.$on("logged-in", LoggedIn => {
+        this.LoggedIn = LoggedIn;
+        $(".userBtn").click();
+      });
     },
     methods: {
       getGame: function () {
         event.preventDefault();
+        $(".car-img").attr("src", "./assets/MediaInAnotherCastle.png");
+        $(".car-twitch").attr("src", "");
+        $(".car-youtube").attr("src", "");
+        $(".game-name").html("");
+        $("#game-genres").html("");
+        $("#game-platforms").html("");
+        $("#game-released").html("");
+        $("#game-plot").html("");
+
         this.game = $("#game-entry").val().trim();
         if (this.game == "") {
           return;
@@ -73,10 +93,10 @@
         
       },
       display_profile: function () {
-        if(this.login == false){
-          //display login modal
+        if(this.LoggedIn == false){
+          this.LogregisterShow = true;
         } else {
-          this.ProfileShow = true;
+          this.ProfileShow = true;          
         }
       },
       close_landing: function () {
@@ -95,7 +115,7 @@
     font-family: "Avenir", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    /* text-align: center; */
     color: #2c3e50;
   }
 

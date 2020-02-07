@@ -24,7 +24,8 @@ export default {
       TwitchShow: false,
       YoutubeShow: false,
       GameinfoShow: false,
-      open: false
+      open: false,
+      iShow: false
     }
   },
   computed: {
@@ -34,28 +35,34 @@ export default {
     EventBus.$on("close-gameinfo", closeGameinfo => {   
       this.GameinfoShow = closeGameinfo;
   });
+    EventBus.$on("i-show", iShow => {   
+      this.iShow = iShow;
+  });
   },
   methods: {    
 
     display_pic: function () {
-      $( ".slick-next" ).click();
+      $('.carousel-inner').slick("getSlick").refresh();
       this.PicShow = true;
       this.TwitchShow = false;
       this.YoutubeShow = false;
+      $('.pic-slick').slick("getSlick").refresh();
     },
     
     display_twitch: function () {
-      $( ".slick-next" ).click();
+      $('.carousel-inner').slick("getSlick").resize();
       this.PicShow = false;
       this.TwitchShow = true;
       this.YoutubeShow = false;
+      $('.twitch-slick').slick("getSlick").resize();
     },
 
     display_youtube: function () {
-      $( ".slick-next" ).click();
+      $('.carousel-inner').slick("getSlick").resize();
       this.PicShow = false;
       this.TwitchShow = false;
       this.YoutubeShow = true;
+      $('.youtube-slick').slick("getSlick").resize();
     },
 
     display_gameinfo: function () {

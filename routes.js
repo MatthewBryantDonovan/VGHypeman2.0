@@ -6,12 +6,12 @@ var db = require("./models");
 const express = require('express');
 const router = express.Router();
 
-router.get("/api/user/:id", function (req, res) {
-  db.user.findOne({
-    where: {
-      id: req.params.id
-    }
-  }).then(function (dbUser) {
+const cors = require('cors');
+router.use(cors());
+
+router.get("/api/user/login", function (req, res) {
+  db.user.findOne(req.body).then(function (dbUser) {
+    dbUser.dataValues.password = "NO PASSWORD HERE";
     res.json(dbUser);
   });
 });
