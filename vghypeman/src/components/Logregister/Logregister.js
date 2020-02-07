@@ -13,7 +13,9 @@ export default {
       closeLogregister: false,
       LoginShow: true,
       RegisterShow: false,
-      userEmail: null
+      userEmail: null,
+      favoriteGames: "",
+      favoriteArts: ""
     }
   },
   computed: {
@@ -72,6 +74,14 @@ export default {
             $("#user-sidebar").append(span);
             
           }
+
+          this.favoriteArts = res.data.favoriteArt;
+          this.favoriteGames = res.data.favoriteGame;
+
+          
+          window.console.log(this.favoriteGames);
+          window.console.log(this.favoriteArts);
+
           
           var LoggedIn = true;
           EventBus.$emit("logged-in", LoggedIn);
