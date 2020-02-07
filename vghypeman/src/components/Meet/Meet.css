@@ -1,3 +1,7 @@
+#meet-us-modal {
+  width: 55vw;
+}
+
 .modal-backdrop {
     position: fixed;
     top: 0;

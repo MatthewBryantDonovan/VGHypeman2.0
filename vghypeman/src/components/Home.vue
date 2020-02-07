@@ -22,7 +22,9 @@
     },
     data() {
       return {
-        LandingShow: true
+        LandingShow: true,
+        DisplayShow: false
+
       }
     },
     mounted() {

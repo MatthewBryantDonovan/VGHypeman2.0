@@ -1,21 +1,34 @@
+import Meet from '../Meet/index.vue';
 
+import {
+  EventBus
+} from "../event-bus";
 
 
 
 export default {
   name: 'twitch',
   components: {
+    Meet
   },
   props: [],
   data() {
     return {
-      
+      MeetShow: false,
+      meetShow: true
     }
   },
   computed: {
 
   },
   mounted() {
+
+    EventBus.$on("close-meet", closeMeet => {   
+      this.MeetShow = closeMeet;
+  });
+    EventBus.$on("meetShow", meetShow => {   
+      this.meetShow = meetShow;
+  });
     
     consoleText([' HYPED', ' MATT', ' BEN', ' CALEB', ' ZACH'], 'text',['#66FCF1','#66FCF1','#66FCF1']);
 
@@ -70,8 +83,9 @@ export default {
    
   },
   methods: {
-
-    
+    display_meet: function () {
+      this.MeetShow = true;
+    }
   }
 }
 

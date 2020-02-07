@@ -10,9 +10,11 @@
 
         <br>
 
-        <div class="center-align"><a class="">
-                <p class="instructions" id="meetTheTeam">Meet The Team!</p>
-            </a>
-        </div>
+        
+            <div class='center'><a v-show="meetShow" v-on:click="display_meet()" style=" margin-left: 5px;">Meet the Team</a></div>
+            <Meet v-show="MeetShow"/>
+ 
+          
+        
     </div>
 </section>
