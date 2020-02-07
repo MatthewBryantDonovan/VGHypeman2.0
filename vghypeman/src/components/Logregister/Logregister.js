@@ -78,7 +78,7 @@ export default {
 
             $("#user-sidebar").append(span);
             
-          }
+          // }
 
           this.favoriteArts = res.data.favoriteArt;
           this.favoriteGames = res.data.favoriteGame;
