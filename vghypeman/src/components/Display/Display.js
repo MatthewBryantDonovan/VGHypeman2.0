@@ -47,6 +47,7 @@ export default {
   });
     EventBus.$on("favorite-access", favoriteAccess => {   
       this.favoriteAccess = favoriteAccess;
+      this.unfavorited = true;
   });
   EventBus.$on("user-id", theuserId => {
     this.userId = theuserId;
@@ -56,6 +57,9 @@ export default {
   });
   EventBus.$on("favorite-arts", favoriteArts => {
     this.favoriteArts = favoriteArts;
+  });
+  EventBus.$on("unfav-enabled", closeLanding => {
+    this.unfavorited = closeLanding;
   });
 
   },
@@ -90,15 +94,39 @@ export default {
     },
     favorite_game: function () {
       this.unfavorited = !this.unfavorited;
+      var tempGameObject = [];
+      this.favoriteGames = this.favoriteGames + (":-:" +  $("#fav").attr("data-name"));
+      this.favoriteArts = this.favoriteArts + (":-:" + $("#fav").attr("data-img"));
+      let request = {
+        favoriteGame: this.favoriteGames,
+        favoriteArt: this.favoriteArts,
+      }
+
+      let games = this.favoriteGames.split(':-:');
+      let arts = this.favoriteArts.split(':-:');
+
+      for (let index = 1; index < games.length; index++) {
+        tempGameObject.push({
+          game: games[index],
+          art: arts[index]
+        })
+      }
+
+      EventBus.$emit("temp-object", tempGameObject);
+      EventBus.$emit("favorite-games", this.favoriteGames);
+      EventBus.$emit("favorite-arts", this.favoriteArts);
+      axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
+        window.console.log(res.data);        
+      })
     },
     unfavorite_game(){
       var tempGameObject = [];
       this.unfavorited = !this.unfavorited;
-      var game = ":-:" +  $("#unfav").attr("data-name");
-      var img = ":-:" + $("#unfav").attr("data-img");
+      this.favoriteGames = this.favoriteGames.replace((":-:" +  $("#unfav").attr("data-name")), "");
+      this.favoriteArts = this.favoriteArts.replace((":-:" + $("#unfav").attr("data-img")), "");
       let request = {
-        favoriteGame: "favoriteGame +" + game,
-        favoriteArt: "favoriteGame +" + img,
+        favoriteGame: this.favoriteGames,
+        favoriteArt: this.favoriteArts,
       }
 
       let games = this.favoriteGames.split(':-:');

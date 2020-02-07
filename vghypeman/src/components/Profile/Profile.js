@@ -24,7 +24,8 @@ export default {
       username: null,
       picture: null,
       email: null,
-      login: false
+      login: false,
+      closeLanding: false
     }
   },
   computed: {
@@ -61,6 +62,9 @@ export default {
     },
     goToGame(game){
       EventBus.$emit("open-game", game);
+      EventBus.$emit("close-landing", this.closeLanding);
+      EventBus.$emit("unfav-enabled", this.closeLanding);
+
     },
     unfavoriteGame(game, art){
       var tempGameObject = [];
@@ -83,7 +87,8 @@ export default {
       }
 
       this.gameObject = tempGameObject;
-
+      EventBus.$emit("favorite-games", this.favoriteGames);
+      EventBus.$emit("favorite-arts", this.favoriteArts);
       axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
         window.console.log(res.data);        
       })
