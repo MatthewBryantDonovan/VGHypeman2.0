@@ -13,10 +13,10 @@
           <ul id="nav-mobile" class="right">
             <li>
               <input id="game-entry" class="form-control" type="search" placeholder="Search" aria-label="Search"
-                v-on:keyup.enter="getGame()" />
+                v-on:keyup.enter="getGame(), showDisplay()" />
             </li>
             <li>
-              <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
+              <button class="searchBtn" type id="game-submit" v-on:click="getGame(), showDisplay()" />
             </li>
             <li>
               <button v-on:click="display_profile()" class="userBtn" type="button" @click.stop="show"></button>
@@ -101,6 +101,10 @@
       },
       close_landing: function () {
         EventBus.$emit("close-landing", this.closeLanding);
+      },
+
+      showDisplay: function () {
+        EventBus.$emit("show-display", this.showDisplay);
       }
     },
     props: {},

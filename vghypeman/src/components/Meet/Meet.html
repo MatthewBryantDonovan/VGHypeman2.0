@@ -1,28 +1,80 @@
 <section class="meet">
 
-    <div class="modal-backdrop">
-      <div class="modal" id="meet-us-modal">
-        
-          
-  
-            
-          
-        <section class="modal-body" id="modal-big-body">
-          <button type="button" class="btn-close" v-on:click="close()" style="float: right;">
-            x
+  <div class="modal-backdrop">
+    <div class="modal" id="meet-us-modal">
+
+      <section class="modal-body" id="modal-big-body">
+        <button type="button" class="btn-close" v-on:click="close()" style="float: right;">
+          x
+        </button>
+        <slot name="body">
+          <!-- <img src="../../../public/assets/meetTheTeamImage.png"> -->
+          <div class="row center"><h1 class="meetTitle">MEET THE TEAM</h1></div>
+
+          <div class="row center">
+            <div class="col s4">
+              <img class="meetPic" src="../../../public/assets/mattImage.png">
+            </div>
+            <div class="col s8">
+              <h5 class="teamNames">Matthew Donovan</h5>
+              <p>balances being a new Dad while attending UCF's coding bootcamp and 
+                working part time. He enjoys being tasked with a problem to work out 
+                one of its many solutions. Always there to lend a helping hand.
+              </p>
+            </div>
+          </div>
+
+          <div class="row center">
+            <div class="col s4">
+              <img class="meetPic" src="../../../public/assets/BenImage.png">
+            </div>
+            <div class="col s8">
+              <h5 class="teamNames">Ben Taylor</h5>
+              <p>finished his undergrad in Digital Media at the University of Central 
+                Florida. He is now jumping into full stack web development with UCF's 
+                coding bootcamp. If he isn't smashing his head into his keyboard programming, 
+                you'll find him at the gym, making food, or playing video games.
+              </p>
+            </div>
+          </div>
+
+          <div class="row center">
+            <div class="col s4">
+              <img class="meetPic" src="../../../public/assets/zachImage.png">
+            </div>
+            <div class="col s8">
+              <h5 class="teamNames">Zach Bratkovich</h5>
+              <p>is an avid learner with an interest in programming, science, and Star 
+                Trek. He enjoys studying physics and exercising in his spare time in 
+                addition to playing video games, of course!
+              </p>
+            </div>
+          </div>
+
+          <div class="row center">
+            <div class="col s4">
+              <img class="meetPic" src="../../../public/assets/calebImage.png">
+            </div>
+            <div class="col s8">
+              <h5 class="teamNames">Caleb Abbott</h5>
+              <p>attended Methodist University where he studied Mathematics and 
+                played football. He has always been hungry for learning new things, and 
+                is not afraid to fail while trying. He enjoys running, and wrenching 
+                on his truck in his free time.
+              </p>
+            </div>
+          </div>
+
+        </slot>
+      </section>
+      <footer class="modal-footer" id="modal-footer">
+        <slot name="footer">
+          <button type="button" class="btn-green" v-on:click="close()">
+            Close
           </button>
-          <slot name="body">
-            <img src="../../../public/assets/meetTheTeamImage.png">
-          </slot>
-        </section>
-        <footer class="modal-footer" id="modal-footer">
-          <slot name="footer">
-            <button type="button" class="btn-green" v-on:click="close()">
-              Close
-            </button>
-          </slot>
-        </footer>
-      </div>
+        </slot>
+      </footer>
     </div>
-  
-  </section>
+  </div>
+
+</section>

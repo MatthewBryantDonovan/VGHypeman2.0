@@ -10,21 +10,20 @@
   import {
     EventBus
   } from "./event-bus";
-  import Display from './Display/index.vue';
   import Landing from './Landing/index.vue';
+  import Display from './Display/index.vue';
   import axios from '../../node_modules/axios/dist/axios.js'
 
   export default {
     name: "Home",
     components: {
-      Display,
-      Landing
+      Landing,
+      Display
     },
     data() {
       return {
         LandingShow: true,
         DisplayShow: false
-
       }
     },
     mounted() {
