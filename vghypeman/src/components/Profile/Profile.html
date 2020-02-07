@@ -1,60 +1,12 @@
 <section class="profile" >
-  <sidebar-menu :menu="menu" class="test">
+  <sidebar-menu :menu="menu" class="test" id="user-sidebar">
     
     <span class="center" slot="header"><img id="user-picture" class="circle" src="../../../public/assets/BenImage.png" style="width: 100px; height: 100px;  margin-top: 35px;"><button class="btn-close" slot="header" v-on:click="close()" style="float: right;">x</button><h5 id="user-username">User Name Here</h5></span>
     
     <span id="user-email" slot="header">E-Mail</span>
     <span slot="header"><hr style="border: 1px solid #66FCF1;"></span>
     <span slot="header"><h5>Favorite Games:</h5></span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 1</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 2</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 3</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 4</span>
-    <span slot="header"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px;" class="gameThumb">Favorite Games 5</span>
+    <!-- <span slot="header"><img src="favoriteArt[index]" style="width: 20px; height: 20px;" class="gameThumb"> favoriteGame[index]</span> -->
     
     <button class="btn" slot="header" v-on:click="close()">CLOSE PROFILE</button>
     <span slot="footer" >I am a footer down here, watch where you're walkin</span>

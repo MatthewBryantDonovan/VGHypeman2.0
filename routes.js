@@ -9,16 +9,32 @@ const router = express.Router();
 const cors = require('cors');
 router.use(cors());
 
-router.get("/api/user/login", function (req, res) {
-  db.user.findOne(req.body).then(function (dbUser) {
-    dbUser.dataValues.password = "NO PASSWORD HERE";
-    res.json(dbUser);
+router.post("/api/user/login", function (req, res) {
+  console.log(req.body);
+  
+  db.user.findOne({
+    where: req.body}).then(function (dbUser) {
+      
+      if (dbUser == null) {
+        res.json({
+          error: "Login failed"
+        });
+      } else {
+        dbUser.dataValues.password = "NO PASSWORD HERE";
+        res.json(dbUser);
+      }
   });
 });
 
 router.post("/api/create/profile", function (req, res) {
   db.user.create(req.body).then(function (dbUser) {
-    res.json(dbUser);
+    if (dbUser == null) {
+      res.json({
+        error: "Registration failed"
+      });
+    } else {
+      res.json(dbUser);
+    }
   });
 });
 
