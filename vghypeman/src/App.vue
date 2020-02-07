@@ -68,12 +68,6 @@
         this.LoggedIn = LoggedIn;
         $(".userBtn").click();
       });
-      var btn = $("<img>").attr("onclick","unfavorite()");
-            btn.attr({
-              src: "./assets/twitch.png",
-              style: "width: 20px; height: 20px;"
-            })
-            $("#app").append(btn);
     },
     methods: {
       getGame: function () {
@@ -107,13 +101,7 @@
       },
       close_landing: function () {
         EventBus.$emit("close-landing", this.closeLanding);
-      },
-      unfavorite(){
-      window.console.log($(this));
-      window.console.log("dkjfghksdfhglksdhfgklhjsdfklgjhsdflkghjsdfkljgh");
-      //stringify the list
-      //send via axios
-    }
+      }
 
     },
 
