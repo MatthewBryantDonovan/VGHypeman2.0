@@ -36,6 +36,10 @@ export default {
     EventBus.$on("game-object", gameObject => {
       this.gameObject = gameObject;
     });
+  
+    EventBus.$on("temp-object", tempGameObject => {
+      this.gameObject = tempGameObject;
+    });
 
     EventBus.$on("favorite-games", favoriteGames => {
       this.favoriteGames = favoriteGames;
@@ -81,8 +85,7 @@ export default {
       this.gameObject = tempGameObject;
 
       axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
-        window.console.log(res.data);
-        
+        window.console.log(res.data);        
       })
     }
   }

@@ -7,6 +7,8 @@ import {
   EventBus
 } from "../event-bus";
 
+import axios from 'axios/dist/axios.js'
+
 
 
 export default {
@@ -27,7 +29,10 @@ export default {
       open: false,
       iShow: false,
       unfavorited: true,
-      favoriteAccess: false
+      favoriteAccess: false,
+      userId: null,
+      favoriteGames: "",
+      favoriteArts: ""
     }
   },
   computed: {
@@ -43,6 +48,16 @@ export default {
     EventBus.$on("favorite-access", favoriteAccess => {   
       this.favoriteAccess = favoriteAccess;
   });
+  EventBus.$on("user-id", theuserId => {
+    this.userId = theuserId;
+  });
+  EventBus.$on("favorite-games", favoriteGames => {
+    this.favoriteGames = favoriteGames;
+  });
+  EventBus.$on("favorite-arts", favoriteArts => {
+    this.favoriteArts = favoriteArts;
+  });
+
   },
   methods: {    
 
@@ -76,6 +91,32 @@ export default {
     favorite_game: function () {
       this.unfavorited = !this.unfavorited;
     },
+    unfavorite_game(){
+      var tempGameObject = [];
+      this.unfavorited = !this.unfavorited;
+      var game = ":-:" +  $("#unfav").attr("data-name");
+      var img = ":-:" + $("#unfav").attr("data-img");
+      let request = {
+        favoriteGame: "favoriteGame +" + game,
+        favoriteArt: "favoriteGame +" + img,
+      }
 
+      let games = this.favoriteGames.split(':-:');
+      let arts = this.favoriteArts.split(':-:');
+
+      for (let index = 1; index < games.length; index++) {
+        tempGameObject.push({
+          game: games[index],
+          art: arts[index]
+        })
+      }
+
+      EventBus.$emit("temp-object", tempGameObject);
+      EventBus.$emit("favorite-games", this.favoriteGames);
+      EventBus.$emit("favorite-arts", this.favoriteArts);
+      axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
+        window.console.log(res.data);        
+      })
+    }
   }
 }

@@ -21,7 +21,7 @@
     </div>
     <div v-show="favoriteAccess">
       <img id="fav" v-show="unfavorited" src="../../../public/assets/favoriteButton.png" class="favorite-btn" v-on:click="favorite_game()">
-      <img id="unfav" v-show="!unfavorited" src="../../../public/assets/BenImage.png" class="favorite-btn" v-on:click="favorite_game()">
+      <img id="unfav" v-show="!unfavorited" src="../../../public/assets/BenImage.png" class="favorite-btn" v-on:click="unfavorite_game()">
     </div>
   </div>
 
