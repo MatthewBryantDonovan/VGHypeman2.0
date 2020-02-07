@@ -33,7 +33,9 @@ export default {
         EventBus.$on("clicked-event", game => {
             this.getGameWebs(game);
         });
-
+        EventBus.$on("open-game", game => {
+            this.getGameWebs(game);
+        });
     },
     methods: {
 

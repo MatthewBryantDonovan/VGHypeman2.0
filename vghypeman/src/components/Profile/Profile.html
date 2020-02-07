@@ -6,8 +6,9 @@
     <span id="user-email" slot="header">E-Mail</span>
     <span slot="header"><hr style="border: 1px solid #66FCF1;"></span>
     <span slot="header"><h5>Favorite Games:</h5></span>
-    <span slot="header" v-for="art in favoriteArts">
-      <img :src="art.src" alt="" class="gameArt" :data="art.name">
+    <span slot="header" v-for="art in gameObject">
+      <img :src="art.art" alt="" class="gameArt" :data="art.game" v-on:click="goToGame(art.game)">
+      <img src="../../../public/assets/placeHolder.jpeg"> 
     </span>
     
     <button class="btn" slot="header" v-on:click="close()">CLOSE PROFILE</button>

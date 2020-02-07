@@ -22,20 +22,7 @@ export default {
       username: null,
       picture: null,
       email: null,
-      login: false,
-      favoriteArts: [
-        {
-          src:
-        "https://s3.gaming-cdn.com/images/products/5852/orig/shadow-of-the-tomb-raider-definitive-edition-cover.jpg",
-        name: "name"
-    },
-    {
-      src:
-        "https://s3.gaming-cdn.com/images/products/5852/orig/shadow-of-the-tomb-raider-definitive-edition-cover.jpg",
-        name: "name"
-    }
-
-      ]
+      login: false
     }
   },
   computed: {
@@ -60,11 +47,8 @@ export default {
     close() {
       EventBus.$emit("close-profile", this.closeProfile);
     },
-    unfavorite(){
-      window.console.log($(this));
-      window.console.log("dkjfghksdfhglksdhfgklhjsdfklgjhsdflkghjsdfkljgh");
-      //stringify the list
-      //send via axios
+    goToGame(game){
+      EventBus.$emit("open-game", game);
     }
   }
 }

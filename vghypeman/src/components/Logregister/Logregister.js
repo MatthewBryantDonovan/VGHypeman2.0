@@ -8,7 +8,7 @@ export default {
   name: 'Logregister',
   components: {},
   props: [],
-  data () {
+  data() {
     return {
       closeLogregister: false,
       LoginShow: true,
@@ -19,7 +19,7 @@ export default {
   computed: {
 
   },
-  mounted () {
+  mounted() {
 
   },
   methods: {
@@ -42,7 +42,7 @@ export default {
         password: userPassword,
         email: this.userEmail
       }
-      
+
       axios.post('http://localhost:5000/api/user/login', request).then(res => {
         if (res.data.error) {
           $('#login-failed').html(res.data.error);
@@ -53,10 +53,10 @@ export default {
           $('#user-email').html(res.data.email);
           $('#user-picture').attr("src", res.data.picture);
 
-          for (let index = 0; index < games.length; index++) {
+          for (let index = 1; index < games.length; index++) {
             var span = $("<span>");
             var img = $("<img>");
-            var btn = $("<img>").attr("onclick","unfavorite()");
+            var btn = $("<img>").attr("onclick", "unfavorite()");
             var gameObject = [];
             btn.attr({
               src: "./assets/twitch.png",
@@ -77,26 +77,25 @@ export default {
             span.append(btn);
 
             $("#user-sidebar").append(span);
-            
-          // }
 
-          this.favoriteArts = res.data.favoriteArt;
-          this.favoriteGames = res.data.favoriteGame;
-          for (let index2 = 0; index2 < games.length; index2++) {
-            gameObject.push({
-              game: games[index2],
-              art: arts[index2]
-            })
-            
+            this.favoriteArts = res.data.favoriteArt;
+            this.favoriteGames = res.data.favoriteGame;
+            for (let index2 = 1; index2 < games.length; index2++) {
+              gameObject.push({
+                game: games[index2],
+                art: arts[index2]
+              })
+
+            }
+            EventBus.$emit("game-object", gameObject);
+            EventBus.$emit("favorite-games", this.favoriteGames);
+            EventBus.$emit("favorite-arts", this.favoriteArts);
+
+            var LoggedIn = true;
+            EventBus.$emit("logged-in", LoggedIn);
+            EventBus.$emit("close-logregister", this.closeLogregister);
+
           }
-          EventBus.$emit("game-object", gameObject);
-          EventBus.$emit("favorite-games", this.favoriteGames);
-          EventBus.$emit("favorite-arts", this.favoriteArts);
-          
-          var LoggedIn = true;
-          EventBus.$emit("logged-in", LoggedIn);
-          EventBus.$emit("close-logregister", this.closeLogregister);
-
         }
       })
     },
@@ -113,7 +112,7 @@ export default {
       }
 
       axios.post('http://localhost:5000/api/create/profile', request).then(res => {
-        if(res.data.error){
+        if (res.data.error) {
           $('#register-failed').html(res.data.error);
         } else {
           var LoggedIn = true;
@@ -123,9 +122,7 @@ export default {
           $('#user-email').html(res.data.email);
 
         }
-        })
+      })
     }
   }
 }
-
-
