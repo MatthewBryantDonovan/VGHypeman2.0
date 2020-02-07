@@ -90,6 +90,9 @@ export default {
             EventBus.$emit("game-object", gameObject);
             EventBus.$emit("favorite-games", this.favoriteGames);
             EventBus.$emit("favorite-arts", this.favoriteArts);
+            var userId = res.data.id;
+            EventBus.$emit("user-id", userId);
+            
 
             var LoggedIn = true;
             EventBus.$emit("logged-in", LoggedIn);

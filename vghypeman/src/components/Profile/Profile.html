@@ -12,7 +12,7 @@
     <span slot="header"><h5>Favorite Games:</h5></span>
     <span slot="header" v-for="art in gameObject">
       <img :src="art.art" alt="" class="gameArt" :data="art.game" v-on:click="goToGame(art.game)">
-      <img src="../../../public/assets/placeHolder.jpeg"> 
+      <img src="../../../public/assets/placeHolder.jpeg" class="small" v-on:click="unfavoriteGame(art.game, art.art)"> 
     </span>
     
     <button class="btn" slot="header" v-on:click="close()">CLOSE PROFILE</button>
