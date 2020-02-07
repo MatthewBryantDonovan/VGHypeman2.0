@@ -49,31 +49,31 @@ export default {
         if (res.data.error) {
           $('#login-failed').html(res.data.error);
         } else {
-          let games = res.data.favoriteGame.split(':-:');
-          let art = res.data.favoriteArt.split(':-:');
+          // let games = res.data.favoriteGame.split(':-:');
+          // let art = res.data.favoriteArt.split(':-:');
           $('#user-username').html(res.data.username);
           $('#user-email').html(res.data.email);
           $('#user-picture').attr("src", res.data.picture);
 
-          for (let index = 0; index < games.length; index++) {
-            var span = $("<span>");
-            var img = $("<img>");
-            span.attr({
-              slot: "header",
-              data: games[index]
-            });
-            img.attr({
-              src: art[index],
-              style: "width: 20px; height: 20px;",
-              class: "gameThumb",
-              data: art[index]
-            });
-            span.append(img);
-            span.append(games[index]);
+          // for (let index = 0; index < games.length; index++) {
+          //   var span = $("<span>");
+          //   var img = $("<img>");
+          //   span.attr({
+          //     slot: "header",
+          //     data: games[index]
+          //   });
+          //   img.attr({
+          //     src: art[index],
+          //     style: "width: 20px; height: 20px;",
+          //     class: "gameThumb",
+          //     data: art[index]
+          //   });
+          //   span.append(img);
+          //   span.append(games[index]);
 
-            $("#user-sidebar").append(span);
+          //   $("#user-sidebar").append(span);
             
-          }
+          // }
 
           this.favoriteArts = res.data.favoriteArt;
           this.favoriteGames = res.data.favoriteGame;

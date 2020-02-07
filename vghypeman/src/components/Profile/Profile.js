@@ -21,7 +21,20 @@ export default {
       username: null,
       picture: null,
       email: null,
-      login: false
+      login: false,
+      favoriteArts: [
+        {
+          src:
+        "https://s3.gaming-cdn.com/images/products/5852/orig/shadow-of-the-tomb-raider-definitive-edition-cover.jpg",
+        name: "name"
+    },
+    {
+      src:
+        "https://s3.gaming-cdn.com/images/products/5852/orig/shadow-of-the-tomb-raider-definitive-edition-cover.jpg",
+        name: "name"
+    }
+
+      ]
     }
   },
   computed: {

@@ -32,3 +32,12 @@
     color: #4AAE9B;
     background: transparent;
   }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .gameArt {
+    height: 50px;
+    width: 50px;
+  }
