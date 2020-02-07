@@ -4,6 +4,8 @@ import {
     EventBus
 } from "../event-bus";
 import "../../../node_modules/slick-carousel/slick/slick.css";
+// import axios from '../../../node_modules/axios/dist/axios.js';
+
 
 export default {
     name: 'Pic',
@@ -50,6 +52,24 @@ export default {
             }).then(function (data0) {
                 this.currentgame = data0.results[0].name;
                 //   window.console.log(data0);
+
+
+                //trying to get igdb working
+              /*   axios({
+                        url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'user-key': "a3bdc2bd665432559f60ba3f27eccf64"
+                        },
+                        data: "fields *; where name = " + this.currentgame + ";"
+                    })
+                    .then(response => {
+                        window.console.log(response.data);
+                    })
+                    .catch(err => {
+                        window.console.error(err);
+                    }); */
 
 
                 //display game name
