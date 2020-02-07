@@ -16,8 +16,9 @@ export default {
     return {
       menu: [],
       closeProfile: false,
-      myGames: [],
-      myGamesArt: [],
+      favoriteGames: "",
+      favoriteArts: "",
+      gameObject:[],
       username: null,
       picture: null,
       email: null,
@@ -28,16 +29,27 @@ export default {
 
   },
   mounted () {
-    $(".vsm--toggle-btn").attr("style","display: none")
+    $(".vsm--toggle-btn").attr("style","display: none");
 
+    EventBus.$on("game-object", gameObject => {
+      this.gameObject = gameObject;
+    });
+
+    EventBus.$on("favorite-games", favoriteGames => {
+      this.favoriteGames = favoriteGames;
+    });
+
+    EventBus.$on("favorite-arts", favoriteArts => {
+      this.favoriteArts = favoriteArts;
+    });
   },
   methods: {
     close() {
       EventBus.$emit("close-profile", this.closeProfile);
     },
-    unFav(noLike, noLikeArt){
-      this.myGames.filter(noLike);
-      this.myGamesArt.filter(noLikeArt);
+    unfavorite(){
+      window.console.log($(this));
+      window.console.log("dkjfghksdfhglksdhfgklhjsdfklgjhsdflkghjsdfkljgh");
       //stringify the list
       //send via axios
     }

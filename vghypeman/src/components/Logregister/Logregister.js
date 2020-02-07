@@ -14,8 +14,6 @@ export default {
       LoginShow: true,
       RegisterShow: false,
       userEmail: null,
-      favoriteGames: "",
-      favoriteArts: ""
     }
   },
   computed: {
@@ -50,7 +48,7 @@ export default {
           $('#login-failed').html(res.data.error);
         } else {
           let games = res.data.favoriteGame.split(':-:');
-          let art = res.data.favoriteArt.split(':-:');
+          let arts = res.data.favoriteArt.split(':-:');
           $('#user-username').html(res.data.username);
           $('#user-email').html(res.data.email);
           $('#user-picture').attr("src", res.data.picture);
@@ -58,18 +56,25 @@ export default {
           for (let index = 0; index < games.length; index++) {
             var span = $("<span>");
             var img = $("<img>");
+            var btn = $("<img>").attr("onclick","unfavorite()");
+            var gameObject = [];
+            btn.attr({
+              src: "./assets/twitch.png",
+              style: "width: 20px; height: 20px;"
+            })
             span.attr({
               slot: "header",
               data: games[index]
             });
             img.attr({
-              src: art[index],
+              src: arts[index],
               style: "width: 20px; height: 20px;",
               class: "gameThumb",
-              data: art[index]
+              data: arts[index]
             });
             span.append(img);
             span.append(games[index]);
+            span.append(btn);
 
             $("#user-sidebar").append(span);
             
@@ -77,11 +82,16 @@ export default {
 
           this.favoriteArts = res.data.favoriteArt;
           this.favoriteGames = res.data.favoriteGame;
-
-          
-          window.console.log(this.favoriteGames);
-          window.console.log(this.favoriteArts);
-
+          for (let index2 = 0; index2 < games.length; index2++) {
+            gameObject.push({
+              game: games[index2],
+              art: arts[index2]
+            })
+            
+          }
+          EventBus.$emit("game-object", gameObject);
+          EventBus.$emit("favorite-games", this.favoriteGames);
+          EventBus.$emit("favorite-arts", this.favoriteArts);
           
           var LoggedIn = true;
           EventBus.$emit("logged-in", LoggedIn);
