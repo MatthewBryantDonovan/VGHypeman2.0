@@ -1,6 +1,6 @@
 <section class="display">
   <p class="fixins"></p>
-    <div class='center'><span class="game-name"></span><i v-show="iShow" v-on:click="display_gameinfo()" class="material-icons">info</i></div>
+    <div class='center'><span class="game-name"></span><i v-show="iShow" v-on:click="display_gameinfo()" class="material-icons" style=" margin-left: 5px;">info</i></div>
  
  <Pic v-show="PicShow" />
  <Youtube v-show="YoutubeShow" />
@@ -19,6 +19,7 @@
     <div id="youtubeBTN" class="col l2 m4 s4 center" v-on:click="display_youtube()">
       <a href="#" class="socialBtn youtube btn"></a>
     </div>
+    <div><img src="../../../public/assets/favoriteButton.png" class="favorite-btn"></div>
   </div>
 
 </section>

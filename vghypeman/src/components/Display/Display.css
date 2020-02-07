@@ -65,3 +65,29 @@
     .fixins {
       line-height: 0rem;
     }
+
+    .favorite-btn{
+      border: none;
+      cursor: pointer;
+      width:40px;
+      height:40px;
+      background: transparent;
+      margin-top:15px;
+      float: right;
+     
+    }
+  
+    .favorite-btn:hover{
+      background-image: url("../../../public/assets/favoriteButtonHover.png");
+      background-size: 100% 100%;
+      background-color: #0B0C10;
+      cursor: pointer;
+      width:40px;
+      height:40px;
+      
+    }
+  
+    .favorite-btn:focus{
+        background-color: #0B0C10;
+        outline: 0;
+    }

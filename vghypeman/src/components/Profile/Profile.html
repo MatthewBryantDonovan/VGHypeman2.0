@@ -1,7 +1,11 @@
 <section class="profile" >
   <sidebar-menu :menu="menu" class="test" id="user-sidebar">
     
-    <span class="center" slot="header"><img id="user-picture" class="circle" src="../../../public/assets/BenImage.png" style="width: 100px; height: 100px;  margin-top: 35px;"><button class="btn-close" slot="header" v-on:click="close()" style="float: right;">x</button><h5 id="user-username">User Name Here</h5></span>
+    <span class="center" slot="header">
+      <button class="btn-settings" slot="header" v-on:click="close()"><img src="../../../public/assets/settingsIcon.png" class="btn-settings-image"></button>
+      <img class="circle" id="user-picture" src="../../../public/assets/defaultUserProfImage.png">
+      <button class="btn-close" slot="header" v-on:click="close()" style="float: right;">x</button>
+      <h5 id="user-username">User Name Here</h5></span>
     
     <span id="user-email" slot="header">E-Mail</span>
     <span slot="header"><hr style="border: 1px solid #66FCF1;"></span>

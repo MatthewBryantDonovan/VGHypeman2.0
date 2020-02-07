@@ -33,11 +33,45 @@
     background: transparent;
   }
 
-  ul {
-    list-style-type: none;
+  .btn-settings{
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    background: transparent;
+    
+  }
+  .btn-settings-image{
+    border: none;
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    background: transparent;
+    margin-top:15px;
+    margin-left:15px;
   }
 
-  .gameArt {
-    height: 50px;
-    width: 50px;
+  .btn-settings-image:hover{
+    background-image: url("../../../public/assets/settingsOnHoverIcon.png");
+    background-size: 100% 100%;
+    background-color: #0B0C10;
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    margin-top:15px;
+    margin-left:15px;
+  }
+
+  .btn-settings:focus{
+      background-color: #0B0C10;
+      outline: 0;
+  }
+  
+
+  #user-picture{
+    border: none;
+    width: 200px; 
+    height: 200px;  
+    margin-top: 35px;
   }
