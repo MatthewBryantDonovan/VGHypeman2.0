@@ -10,7 +10,6 @@ const cors = require('cors');
 router.use(cors());
 
 router.post("/api/user/login", function (req, res) {
-  console.log(req.body);
   
   db.user.findOne({
     where: req.body}).then(function (dbUser) {

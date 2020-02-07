@@ -19,7 +19,10 @@
     <div id="youtubeBTN" class="col l2 m4 s4 center" v-on:click="display_youtube()">
       <a href="#" class="socialBtn youtube btn"></a>
     </div>
-    <div><img src="../../../public/assets/favoriteButton.png" class="favorite-btn"></div>
+    <div v-show="favoriteAccess">
+      <img id="fav" v-show="unfavorited" src="../../../public/assets/favoriteButton.png" class="favorite-btn" v-on:click="favorite_game()">
+      <img id="unfav" v-show="!unfavorited" src="../../../public/assets/BenImage.png" class="favorite-btn" v-on:click="favorite_game()">
+    </div>
   </div>
 
 </section>

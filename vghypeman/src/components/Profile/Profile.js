@@ -45,9 +45,8 @@ export default {
       this.favoriteArts = favoriteArts;
     });
     
-    EventBus.$on("user-id", userId => {
-      this.userId = userId;
-      window.console.log(this.userId)
+    EventBus.$on("user-id", theuserId => {
+      this.userId = theuserId;
     });
 
 
@@ -60,22 +59,31 @@ export default {
       EventBus.$emit("open-game", game);
     },
     unfavoriteGame(game, art){
-      window.console.log(game, art)
-      this.favoriteGames.replace(":-:" + game, "");
-      this.favoriteArts.replace(":-:" + art, "");
-      window.console.log(this.favoriteGames, this.favoriteArts);
+      var tempGameObject = [];
+      
+      this.favoriteGames = this.favoriteGames.replace(":-:" + game, "");
+      this.favoriteArts = this.favoriteArts.replace(":-:" + art, "");
       let request = {
         favoriteGame: this.favoriteGames,
         favoriteArt: this.favoriteArts
       }
+
+      let games = this.favoriteGames.split(':-:');
+      let arts = this.favoriteArts.split(':-:');
+
+      for (let index = 1; index < games.length; index++) {
+        tempGameObject.push({
+          game: games[index],
+          art: arts[index]
+        })
+      }
+
+      this.gameObject = tempGameObject;
+
       axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
-        window.console.log(res.data)
-        this.favoriteGames = res.data.favoriteGame;
-        this.favoriteArts = res.data.favoriteArt;
-        window.console.log(this.favoriteGames, this.favoriteArts);
+        window.console.log(res.data);
+        
       })
     }
   }
 }
-
-

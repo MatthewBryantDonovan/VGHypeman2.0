@@ -25,7 +25,9 @@ export default {
       YoutubeShow: false,
       GameinfoShow: false,
       open: false,
-      iShow: false
+      iShow: false,
+      unfavorited: true,
+      favoriteAccess: false
     }
   },
   computed: {
@@ -37,6 +39,9 @@ export default {
   });
     EventBus.$on("i-show", iShow => {   
       this.iShow = iShow;
+  });
+    EventBus.$on("favorite-access", favoriteAccess => {   
+      this.favoriteAccess = favoriteAccess;
   });
   },
   methods: {    
@@ -67,7 +72,10 @@ export default {
 
     display_gameinfo: function () {
       this.GameinfoShow = true;
-    }
+    },
+    favorite_game: function () {
+      this.unfavorited = !this.unfavorited;
+    },
 
   }
 }

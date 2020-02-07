@@ -42,6 +42,9 @@ export default {
     methods: {
 
         getGameWebs: function (game) {
+            var favoriteAccess = true;
+            EventBus.$emit("favorite-access", favoriteAccess);
+
             var whichPlatforms = [];
             var itemNo = 0;
             var currentGame = game;
@@ -74,6 +77,8 @@ export default {
 
                 //display game name
                 $(".game-name").html(data0.results[0].name);
+                $("#fav").attr("data-name", data0.results[0].name);
+                $("#unfav").attr("data-name", data0.results[0].name);
                 var iShow = true;
                 EventBus.$emit("i-show", iShow);
                 $("#game-modal").css("visibility", "visible");
@@ -107,6 +112,11 @@ export default {
 
                 //display screenshots
                 for (var ssindex = 0; ssindex < 5; ssindex++) {
+
+                    if(ssindex == 0) {
+                        $("#fav").attr("data-img", data0.results[0].short_screenshots[ssindex].image);
+                        $("#unfav").attr("data-img", data0.results[0].short_screenshots[ssindex].image);
+                    }
 
                     if (itemNo < 5) {
                         if (ssindex < data0.results[0].short_screenshots.length) {

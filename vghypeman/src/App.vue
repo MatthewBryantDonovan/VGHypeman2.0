@@ -34,20 +34,6 @@
 </template>
 
 <script>
-
-    function unfavorite(lol){
-      if(lol){
-        lol = "lol";
-      } else {
-        window.console.log($(this));
-        window.console.log("dkjfghksdfhglksdhfgklhjsdfklgjhsdflkghjsdfkljgh");
-        //stringify the list
-        //send via axios
-
-      }
-    }
-
-    unfavorite("lol")
   import $ from 'jquery';
   // import this anywhere you want to 'Bus' data around
   import {
