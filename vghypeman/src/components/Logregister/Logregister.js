@@ -56,11 +56,15 @@ export default {
           for (let index = 0; index < games.length; index++) {
             var span = $("<span>");
             var img = $("<img>");
-            span.attr("slot", "header");
+            span.attr({
+              slot: "header",
+              data: games[index]
+            });
             img.attr({
               src: art[index],
               style: "width: 20px; height: 20px;",
-              class: "gameThumb"
+              class: "gameThumb",
+              data: art[index]
             });
             span.append(img);
             span.append(games[index]);
