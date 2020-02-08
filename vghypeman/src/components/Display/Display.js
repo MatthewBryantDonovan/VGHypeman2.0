@@ -32,7 +32,7 @@ export default {
       favoriteAccess: false,
       userId: null,
       favoriteGames: "",
-      favoriteArts: ""
+      favoriteArts: "",
     }
   },
   computed: {

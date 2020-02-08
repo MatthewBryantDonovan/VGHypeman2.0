@@ -2,6 +2,7 @@
   <div id="app">
     <Profile v-show="ProfileShow"/>
     <Logregister v-show="LogregisterShow"/>
+    <Imageupload v-show="ImageuploadShow"/>
     <div class='container'>
     <nav id="hi8 valign-wrapper">
       <div class="nav-wrapper">
@@ -39,14 +40,16 @@
   import {
     EventBus
   } from "./components/event-bus";
-  import Profile from './components/Profile/index.vue'
-  import Logregister from './components/Logregister/index.vue'
+  import Profile from './components/Profile/index.vue';
+  import Logregister from './components/Logregister/index.vue';
+import Imageupload from './components/Imageupload/index.vue';
 
   export default {
     name: "app",
     components: {
       Profile,
-      Logregister
+      Logregister,
+      Imageupload
     },
     data() {
       return {
@@ -54,7 +57,8 @@
         ProfileShow: false,
         closeLanding: true,
         LogregisterShow: false,
-        LoggedIn: false
+        LoggedIn: false,
+        ImageuploadShow: false
       }
     },
     mounted() {
@@ -68,6 +72,12 @@
         this.LoggedIn = LoggedIn;
         $(".userBtn").click();
       });
+        EventBus.$on("close-imageupload", closeImageupload => {   
+    this.ImageuploadShow = closeImageupload;
+});
+EventBus.$on("show-imageUpload", ImageuploadShow => {   
+  this.ImageuploadShow = ImageuploadShow;
+});
     },
     methods: {
       getGame: function () {
