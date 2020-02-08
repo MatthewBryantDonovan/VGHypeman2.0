@@ -107,6 +107,13 @@ export default {
           $('#user-username').html(res.data.username);
           $('#user-email').html(res.data.email);
 
+          var emptyObj = {};
+          window.console.log(res);
+          // EventBus.$emit("user-id", theuserId);
+          EventBus.$emit("game-object", emptyObj);
+          EventBus.$emit("favorite-games", request.favoriteGame);
+          EventBus.$emit("favorite-arts", request.favoriteArt);
+
         }
       })
     }
