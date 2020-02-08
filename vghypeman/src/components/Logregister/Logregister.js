@@ -108,11 +108,10 @@ export default {
           $('#user-email').html(res.data.email);
 
           var emptyObj = {};
-          window.console.log(res);
-          // EventBus.$emit("user-id", theuserId);
+          EventBus.$emit("user-id", res.data.id);
           EventBus.$emit("game-object", emptyObj);
-          EventBus.$emit("favorite-games", request.favoriteGame);
-          EventBus.$emit("favorite-arts", request.favoriteArt);
+          EventBus.$emit("favorite-games", res.data.favoriteGame);
+          EventBus.$emit("favorite-arts", res.data.favoriteArt);
 
         }
       })
