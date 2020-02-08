@@ -76,6 +76,15 @@
     margin-top: 35px;
   }
 
+  #user-username{
+    text-align: center;
+  }
+
+  #user-email{
+    text-align: center;
+  }
+
+
   .small {
     height: 20px;
     width: 20px;
