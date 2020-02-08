@@ -1,6 +1,11 @@
 #meet-us-modal {
   width: 40vw;
 }
+@media only screen and (max-width: 989px) {
+  .meetTitle {
+    font-size: 36px;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   #meet-us-modal {
@@ -9,6 +14,9 @@
   .meetPic {
     width: 10px;
   }
+  .meetTitle {
+    font-size: 32px;
+  }
 }
 
 .meetTitle, .teamNames {
@@ -16,6 +24,7 @@
 }
 
 .meetPic {
+  border: none;
   width: 150px;
   height: auto;
 }
