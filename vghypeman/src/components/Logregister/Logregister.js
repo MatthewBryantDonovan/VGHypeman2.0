@@ -93,8 +93,7 @@ export default {
         email: this.userEmail,
         username: userUsername,
         favoriteArt: "",
-        favoriteGame: "",
-        picture: ""
+        favoriteGame: ""
 
       }
 
