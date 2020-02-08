@@ -68,18 +68,15 @@
 
     .game-name{
       margin-bottom: 30px;
+      font-size:24px;
     }
 
     @media only screen and (max-width: 600px) {
      
       .game-name {
-        font-size:10px;
+        font-size:18px;
         
         
-    }
-
-    .center{
-      height:40px;
     }
 
     .favorite-btn{
