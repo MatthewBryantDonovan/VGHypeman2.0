@@ -30,7 +30,8 @@ export default {
       this.meetShow = meetShow;
   });
     
-    consoleText([' HYPED', ' MATT', ' BEN', ' CALEB', ' ZACH'], 'text',['#66FCF1','#66FCF1','#66FCF1']);
+    consoleText(['HYPEMAN', 'SEARCH GAMES', 'SCREENSHOTS', 'TWITCH STREAMS', 'YOUTUBE REVIEWS', 'GET HYPED'], 'text',['#45A29E','#ffff66', '#00e664','#6441a5','#c4302b','#66FCF1']);
+    // consoleText(['HYPEMAN', 'STEP 1: SEARCH GAMES', 'STEP 2: WATCH GAMES', 'STEP 3: ???????', 'STEP 4: PROFIT!'], 'text',['#45A29E','#ffff66', '#00e664','#6441a5','#c4302b','#66FCF1']);
 
     function consoleText(words, id, colors) {
       if (colors === undefined) colors = ['#fff'];
