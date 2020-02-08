@@ -4,7 +4,7 @@ import {
     EventBus
 } from "../event-bus";
 import "../../../node_modules/slick-carousel/slick/slick.css";
-import axios from '../../../node_modules/axios/dist/axios.js';
+// import axios from '../../../node_modules/axios/dist/axios.js';
 
 
 export default {
@@ -19,7 +19,10 @@ export default {
             img2: "./assets/mediaScreen.png",
             img3: "./assets/mediaScreen.png",
             img4: "./assets/mediaScreen.png",
-            img5: "./assets/mediaScreen.png"
+            img5: "./assets/mediaScreen.png",
+            favoriteGames: "",
+            favoriteArts: "",
+            closeLanding: false
         }
     },
     computed: {},
@@ -38,6 +41,12 @@ export default {
         EventBus.$on("open-game", game => {
             this.getGameWebs(game);
         });
+        EventBus.$on("favorite-games", favoriteGames => {
+            this.favoriteGames = favoriteGames;
+        });
+        EventBus.$on("favorite-arts", favoriteArts => {
+        this.favoriteArts = favoriteArts;
+        });
     },
     methods: {
 
@@ -49,6 +58,7 @@ export default {
             var itemNo = 0;
             var currentGame = game;
             var queryURL = "https://api.rawg.io/api/games?search=" + currentGame;
+            var favoriteGames = this.favoriteGames
             $.ajax({
                 url: queryURL,
                 method: "GET"
@@ -58,25 +68,30 @@ export default {
 
 
                 //trying to get igdb working
-                axios({
-                        url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
-                        method: 'POST',
-                        headers: {
-                            'Accept': 'application/json',
-                            'user-key': "a3bdc2bd665432559f60ba3f27eccf64"
-                        },
-                        data: "fields *; search '" + currentGame + "'; limit 50;"
-                    })
-                    .then(response => {
-                        window.console.log(response.data);
-                    })
-                    .catch(err => {
-                        window.console.error(err);
-                    });
+                // axios({
+                //         url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
+                //         method: 'POST',
+                //         headers: {
+                //             'Accept': 'application/json',
+                //             'user-key': "a3bdc2bd665432559f60ba3f27eccf64"
+                //         },
+                //         data: "fields *; search '" + currentGame + "'; limit 50;"
+                //     })
+                //     .then(response => {
+                //         window.console.log(response.data);
+                //     })
+                //     .catch(err => {
+                //         window.console.error(err);
+                //     });
 
 
                 //display game name
                 $(".game-name").html(data0.results[0].name);
+                if (favoriteGames != ""){
+                    if (favoriteGames.search(data0.results[0].name) > 0){
+                        EventBus.$emit("unfav-enabled", this.closeLanding);
+                    }
+                }
                 $("#fav").attr("data-name", data0.results[0].name);
                 $("#unfav").attr("data-name", data0.results[0].name);
                 var iShow = true;

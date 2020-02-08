@@ -13,7 +13,7 @@ export default {
       closeLogregister: false,
       LoginShow: true,
       RegisterShow: false,
-      userEmail: null,
+      userEmail: null
     }
   },
   computed: {
@@ -55,6 +55,12 @@ export default {
           var gameObject = [];
           this.favoriteArts = res.data.favoriteArt;
           this.favoriteGames = res.data.favoriteGame;
+
+          if (res.data.favoriteGame.search($("#the-game-name").text()) > 0){
+            window.console.log("I MADE ITTTTTTT")
+            var alwaysFalse = false;
+            EventBus.$emit("unfav-enabled", alwaysFalse);
+        }
           for (let index2 = 1; index2 < games.length; index2++) {
             gameObject.push({
               game: games[index2],

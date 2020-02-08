@@ -13,6 +13,7 @@
   import Landing from './Landing/index.vue';
   import Display from './Display/index.vue';
   import axios from '../../node_modules/axios/dist/axios.js'
+  import $ from "jquery"
 
   export default {
     name: "Home",
@@ -23,12 +24,14 @@
     data() {
       return {
         LandingShow: true,
-        DisplayShow: false
       }
     },
     mounted() {
       EventBus.$on("close-landing", closeLanding => {
         this.LandingShow = closeLanding;
+        $('.carousel-inner').slick("getSlick").refresh();
+        $('.pic-slick').slick("getSlick").refresh();
+
       });
     },
     methods: {

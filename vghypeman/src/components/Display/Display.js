@@ -61,6 +61,9 @@ export default {
   EventBus.$on("unfav-enabled", closeLanding => {
     this.unfavorited = closeLanding;
   });
+  EventBus.$on("fav-enabled", alwaysTrue => {
+    this.unfavorited = alwaysTrue;
+  });
 
   },
   methods: {    

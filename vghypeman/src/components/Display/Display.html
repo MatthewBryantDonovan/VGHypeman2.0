@@ -2,7 +2,7 @@
   <p class="fixins"></p>
     <div class='center' v-show="favoriteAccess"><img id="fav" v-show="unfavorited" src="../../../public/assets/favoriteButton.png" class="favorite-btn" v-on:click="favorite_game()">
     <img id="unfav" v-show="!unfavorited" src="../../../public/assets/unfavoriteGameImage.png" class="favorite-btn" v-on:click="unfavorite_game()">
-    <span class="game-name"></span>
+    <span id="the-game-name"class="game-name"></span>
     <!-- <i v-show="iShow" v-on:click="display_gameinfo()" class="material-icons" style=" margin-left: 5px;">info</i> -->
     <img v-show="iShow"  src="../../../public/assets/infoIcon.png" class="iconButton" v-on:click="display_gameinfo()">
   </div>

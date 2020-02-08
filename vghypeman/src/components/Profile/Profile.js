@@ -25,7 +25,8 @@ export default {
       picture: null,
       email: null,
       login: false,
-      closeLanding: false
+      closeLanding: false,
+      alwaysTrue: true
     }
   },
   computed: {
@@ -87,6 +88,9 @@ export default {
       }
 
       this.gameObject = tempGameObject;
+      if ($("#the-game-name").text() == game){
+        EventBus.$emit("fav-enabled", this.alwaysTrue);
+    }
       EventBus.$emit("favorite-games", this.favoriteGames);
       EventBus.$emit("favorite-arts", this.favoriteArts);
       axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {

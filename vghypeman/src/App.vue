@@ -13,10 +13,10 @@
           <ul id="nav-mobile" class="right">
             <li>
               <input id="game-entry" class="form-control" type="search" placeholder="Search" aria-label="Search"
-                v-on:keyup.enter="getGame(), showDisplay()" />
+                v-on:keyup.enter="getGame()" />
             </li>
             <li>
-              <button class="searchBtn" type id="game-submit" v-on:click="getGame(), showDisplay()" />
+              <button class="searchBtn" type id="game-submit" v-on:click="getGame()" />
             </li>
             <li>
               <button v-on:click="display_profile()" class="userBtn" type="button" @click.stop="show"></button>
@@ -72,6 +72,10 @@
     methods: {
       getGame: function () {
         event.preventDefault();
+        this.game = $("#game-entry").val().trim();
+        if (this.game == "") {
+          return;
+        }
         $(".car-img").attr("src", "./assets/MediaInAnotherCastle.png");
         $(".car-twitch").attr("src", "");
         $(".car-youtube").attr("src", "");
@@ -81,10 +85,6 @@
         $("#game-released").html("");
         $("#game-plot").html("");
 
-        this.game = $("#game-entry").val().trim();
-        if (this.game == "") {
-          return;
-        }
         $("#game-entry").val("");
         // this.game now has game name for the API
         // passing it via 'Bus' to Pic,Twitch,Youtube
@@ -105,9 +105,6 @@
         EventBus.$emit("close-landing", this.closeLanding);
       },
 
-      showDisplay: function () {
-        EventBus.$emit("show-display", this.showDisplay);
-      }
 
     },
 
