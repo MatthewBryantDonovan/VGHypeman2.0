@@ -2,6 +2,7 @@
 import Vue from 'vue'
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
+import Imageupload from '../Imageupload/index.vue';
 import {
   EventBus
 } from "../event-bus";
@@ -11,7 +12,9 @@ import axios from 'axios/dist/axios';
 
 export default {
   name: 'Profile',
-  components: {},
+  components: {
+    Imageupload
+  },
   props: [],
   data () {
     return {
@@ -26,7 +29,8 @@ export default {
       email: null,
       login: false,
       closeLanding: false,
-      alwaysTrue: true
+      alwaysTrue: true,
+      ImageuploadShow: false
     }
   },
   computed: {
@@ -55,6 +59,9 @@ export default {
       this.userId = theuserId;
     });
 
+    EventBus.$on("close-gameinfo", closeImageupload => {   
+      this.ImageuploadShow = closeImageupload;
+  });
 
   },
   methods: {
@@ -96,6 +103,9 @@ export default {
       axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
         window.console.log(res.data);        
       })
+    },
+    display_imageupload: function () {
+      this.ImageuploadShow = true;
     }
   }
 }
