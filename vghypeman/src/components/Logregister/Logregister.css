@@ -73,7 +73,7 @@
       border-radius: 2px;
     }
 
-    #email:focus {
+    #login-email:focus {
       outline: none !important;
       margin: 10px;
       border:1px solid #4AAE9B;
@@ -81,7 +81,7 @@
       box-shadow: 0 0 6px #4AAE9B;
   }
 
-  #password:focus {
+  #login-password:focus {
     outline: none !important;
     margin: 10px;
     border:1px solid #4AAE9B;
@@ -90,6 +90,30 @@
 }
 
 #username:focus {
+  outline: none !important;
+  margin: 10px;
+  border:1px solid #4AAE9B;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #4AAE9B;
+}
+
+#register-username:focus {
+  outline: none !important;
+  margin: 10px;
+  border:1px solid #4AAE9B;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #4AAE9B;
+}
+
+#register-email:focus {
+  outline: none !important;
+  margin: 10px;
+  border:1px solid #4AAE9B;
+  border-radius: 10px;
+  box-shadow: 0 0 6px #4AAE9B;
+}
+
+#register-password:focus {
   outline: none !important;
   margin: 10px;
   border:1px solid #4AAE9B;
