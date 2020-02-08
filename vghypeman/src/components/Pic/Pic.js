@@ -4,6 +4,8 @@ import {
     EventBus
 } from "../event-bus";
 import "../../../node_modules/slick-carousel/slick/slick.css";
+import axios from '../../../node_modules/axios/dist/axios.js';
+
 
 export default {
     name: 'Pic',
@@ -33,11 +35,16 @@ export default {
         EventBus.$on("clicked-event", game => {
             this.getGameWebs(game);
         });
-
+        EventBus.$on("open-game", game => {
+            this.getGameWebs(game);
+        });
     },
     methods: {
 
         getGameWebs: function (game) {
+            var favoriteAccess = true;
+            EventBus.$emit("favorite-access", favoriteAccess);
+
             var whichPlatforms = [];
             var itemNo = 0;
             var currentGame = game;
@@ -50,8 +57,28 @@ export default {
                 //   window.console.log(data0);
 
 
+                //trying to get igdb working
+                axios({
+                        url: "https://cors-anywhere.herokuapp.com/https://api-v3.igdb.com/games",
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'user-key': "a3bdc2bd665432559f60ba3f27eccf64"
+                        },
+                        data: "fields *; search '" + currentGame + "'; limit 50;"
+                    })
+                    .then(response => {
+                        window.console.log(response.data);
+                    })
+                    .catch(err => {
+                        window.console.error(err);
+                    });
+
+
                 //display game name
                 $(".game-name").html(data0.results[0].name);
+                $("#fav").attr("data-name", data0.results[0].name);
+                $("#unfav").attr("data-name", data0.results[0].name);
                 var iShow = true;
                 EventBus.$emit("i-show", iShow);
                 $("#game-modal").css("visibility", "visible");
@@ -85,6 +112,11 @@ export default {
 
                 //display screenshots
                 for (var ssindex = 0; ssindex < 5; ssindex++) {
+
+                    if(ssindex == 0) {
+                        $("#fav").attr("data-img", data0.results[0].short_screenshots[ssindex].image);
+                        $("#unfav").attr("data-img", data0.results[0].short_screenshots[ssindex].image);
+                    }
 
                     if (itemNo < 5) {
                         if (ssindex < data0.results[0].short_screenshots.length) {

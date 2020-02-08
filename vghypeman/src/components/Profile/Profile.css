@@ -69,9 +69,88 @@
   }
   
 
-  #user-image{
+  #user-picture{
     border: none;
     width: 200px; 
     height: 200px;  
     margin-top: 35px;
   }
+
+  .small {
+    height: 20px;
+    width: 20px;
+  }
+
+  .gameName {
+    margin-left:30px;
+    text-align: left;
+  }
+
+  .favoriteHeader{
+    margin-left: 20px;
+  }
+
+  .gameArt{
+    width: 250px;
+    height: 150px;
+    border:none;
+    margin-left: 30px;
+    margin-top:10px;
+    margin-bottom:20px;
+    box-shadow: 0 1px 3px 0 rgba(102, 252, 241, .5), 0 3px 3px 0 rgba(102, 252, 241, .5);
+    cursor: pointer;
+  }
+
+  .gameArt:hover {
+    -moz-transform: translate(-2px, -2px);
+    -ms-transform: translate(-2px, -2px);
+    -o-transform: translate(-2px, -2px);
+    -webkit-transform: translate(-2px, -2px);
+    transform: translate(-2px, -2px)
+}
+
+.show-off
+{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: -180px;
+    left: -600px;
+    transition: 1s;
+    transform: rotate(30deg);
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0)50%, rgba(255, 255, 255, 0.7)100%);
+}
+
+.gameArt:hover .show-off
+{
+    top: 0px;
+    left: 0px;
+    transform: rotate(0deg);
+}
+
+  .unfavoriteGame{
+    border: none;
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    background: transparent; 
+    margin-right: 10px;
+   
+  }
+
+  
+
+  .unfavoriteGame:hover{
+    background-image: url("../../../public/assets/favoriteButtonHover.png");
+    background-size: 100% 100%;
+    cursor: pointer;
+    width:20px;
+    height:20px;
+    
+    
+  }
+
+  .unfavoriteGame:focus{
+      outline: 0;
+  }
+

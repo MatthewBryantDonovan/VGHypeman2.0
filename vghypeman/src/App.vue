@@ -52,7 +52,7 @@
       return {
         game: "",
         ProfileShow: false,
-        closeLanding: false,
+        closeLanding: true,
         LogregisterShow: false,
         LoggedIn: false
       }
@@ -89,6 +89,7 @@
         // this.game now has game name for the API
         // passing it via 'Bus' to Pic,Twitch,Youtube
         EventBus.$emit("clicked-event", this.game);
+        this.closeLanding = false;
         EventBus.$emit("close-landing", this.closeLanding);
         
       },
@@ -100,13 +101,17 @@
         }
       },
       close_landing: function () {
+        this.closeLanding = !this.closeLanding;
         EventBus.$emit("close-landing", this.closeLanding);
       },
 
       showDisplay: function () {
         EventBus.$emit("show-display", this.showDisplay);
       }
+
     },
+
+    
     props: {},
   };
 </script>

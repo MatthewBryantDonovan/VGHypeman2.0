@@ -7,6 +7,8 @@ import {
   EventBus
 } from "../event-bus";
 
+import axios from 'axios/dist/axios.js'
+
 
 
 export default {
@@ -25,7 +27,12 @@ export default {
       YoutubeShow: false,
       GameinfoShow: false,
       open: false,
-      iShow: false
+      iShow: false,
+      unfavorited: true,
+      favoriteAccess: false,
+      userId: null,
+      favoriteGames: "",
+      favoriteArts: ""
     }
   },
   computed: {
@@ -38,6 +45,23 @@ export default {
     EventBus.$on("i-show", iShow => {   
       this.iShow = iShow;
   });
+    EventBus.$on("favorite-access", favoriteAccess => {   
+      this.favoriteAccess = favoriteAccess;
+      this.unfavorited = true;
+  });
+  EventBus.$on("user-id", theuserId => {
+    this.userId = theuserId;
+  });
+  EventBus.$on("favorite-games", favoriteGames => {
+    this.favoriteGames = favoriteGames;
+  });
+  EventBus.$on("favorite-arts", favoriteArts => {
+    this.favoriteArts = favoriteArts;
+  });
+  EventBus.$on("unfav-enabled", closeLanding => {
+    this.unfavorited = closeLanding;
+  });
+
   },
   methods: {    
 
@@ -67,7 +91,60 @@ export default {
 
     display_gameinfo: function () {
       this.GameinfoShow = true;
-    }
+    },
+    favorite_game: function () {
+      this.unfavorited = !this.unfavorited;
+      var tempGameObject = [];
+      this.favoriteGames = this.favoriteGames + (":-:" +  $("#fav").attr("data-name"));
+      this.favoriteArts = this.favoriteArts + (":-:" + $("#fav").attr("data-img"));
+      let request = {
+        favoriteGame: this.favoriteGames,
+        favoriteArt: this.favoriteArts,
+      }
 
+      let games = this.favoriteGames.split(':-:');
+      let arts = this.favoriteArts.split(':-:');
+
+      for (let index = 1; index < games.length; index++) {
+        tempGameObject.push({
+          game: games[index],
+          art: arts[index]
+        })
+      }
+
+      EventBus.$emit("temp-object", tempGameObject);
+      EventBus.$emit("favorite-games", this.favoriteGames);
+      EventBus.$emit("favorite-arts", this.favoriteArts);
+      axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
+        window.console.log(res.data);        
+      })
+    },
+    unfavorite_game(){
+      var tempGameObject = [];
+      this.unfavorited = !this.unfavorited;
+      this.favoriteGames = this.favoriteGames.replace((":-:" +  $("#unfav").attr("data-name")), "");
+      this.favoriteArts = this.favoriteArts.replace((":-:" + $("#unfav").attr("data-img")), "");
+      let request = {
+        favoriteGame: this.favoriteGames,
+        favoriteArt: this.favoriteArts,
+      }
+
+      let games = this.favoriteGames.split(':-:');
+      let arts = this.favoriteArts.split(':-:');
+
+      for (let index = 1; index < games.length; index++) {
+        tempGameObject.push({
+          game: games[index],
+          art: arts[index]
+        })
+      }
+
+      EventBus.$emit("temp-object", tempGameObject);
+      EventBus.$emit("favorite-games", this.favoriteGames);
+      EventBus.$emit("favorite-arts", this.favoriteArts);
+      axios.put('http://localhost:5000/api/update/' + this.userId + '/favorite', request).then( res => {
+        window.console.log(res.data);        
+      })
+    }
   }
 }

@@ -66,14 +66,17 @@
       line-height: 0rem;
     }
 
+    .game-name{
+      margin-bottom: 30px;
+    }
+
     .favorite-btn{
       border: none;
       cursor: pointer;
-      width:40px;
-      height:40px;
-      background: transparent;
-      margin-top:15px;
-      float: right;
+      width:20px;
+      height:20px;
+      background: transparent; 
+      margin-right: 10px;
      
     }
   
@@ -82,12 +85,39 @@
       background-size: 100% 100%;
       background-color: #0B0C10;
       cursor: pointer;
-      width:40px;
-      height:40px;
+      width:20px;
+      height:20px;
       
     }
   
     .favorite-btn:focus{
+        background-color: #0B0C10;
+        outline: 0;
+    }
+
+    .iconButton{
+      border: none;
+      cursor: pointer;
+      width:20px;
+      height:20px;
+      margin-left: 10px;
+      background: transparent; 
+      margin-right: 10px;
+     
+    }
+  
+    .iconButton:hover{
+      background-image: url("../../../public/assets/infoIconHover.png");
+      background-size: 100% 100%;
+      background-color: #0B0C10;
+      cursor: pointer;
+      margin-left: 10px;
+      width:20px;
+      height:20px;
+      
+    }
+  
+    .iconButton:focus{
         background-color: #0B0C10;
         outline: 0;
     }

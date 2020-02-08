@@ -1,26 +1,22 @@
 <section class="profile" >
-  <sidebar-menu :menu="menu" class="test">
+  <sidebar-menu :menu="menu" class="test" id="user-sidebar">
     
     <span class="center" slot="header">
       <button class="btn-settings" slot="header" v-on:click="close()"><img src="../../../public/assets/settingsIcon.png" class="btn-settings-image"></button>
-      <img class="circle" id="user-image" src="../../../public/assets/defaultUserProfImage.png">
+      <img class="circle" id="user-picture" src="../../../public/assets/defaultUserProfImage.png">
       <button class="btn-close" slot="header" v-on:click="close()" style="float: right;">x</button>
-      <h5>User Name Here</h5>
+      <h5 id="user-username">User Name Here</h5></span>
+    
+    <span id="user-email" slot="header">E-Mail</span>
+    <span slot="header"><hr style="border: 1px solid #66FCF1;"></span>
+    <span slot="header"><h5 class="favoriteHeader">Favorite Games:</h5></span>
+    <span slot="header" v-for="art in gameObject">
+      <div class="gameName"><img src="../../../public/assets/unfavoriteGameImage.png" class="unfavoriteGame" v-on:click="unfavoriteGame(art.game, art.art)"> <span >{{art.game}}</span></div>      
+      <img :src="art.art" alt="" class="gameArt" :data="art.game" v-on:click="goToGame(art.game)">
     </span>
     
-    <span slot="header" id="user-email">E-Mail</span>
-    <span slot="header"><hr style="border: 1px solid #66FCF1;"></span>
-    <span slot="header"><h5>Favorite Games:</h5></span>
-    <span slot="header" id="favorite-game"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px; margin-right:10px;" class="gameThumb">Favorite Games 1<img src="../../../public/assets/unfavoriteGameImage.png" style="width: 20px; height: 20px; margin-left: 10px;" class="unfavorite-game"></span>
-    <span slot="header" id="favorite-game"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px; margin-right:10px;" class="gameThumb">Favorite Games 2<img src="../../../public/assets/unfavoriteGameImage.png" style="width: 20px; height: 20px; margin-left: 10px;" class="unfavorite-game"></span>
-    <span slot="header" id="favorite-game"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px; margin-right:10px;" class="gameThumb">Favorite Games 3<img src="../../../public/assets/unfavoriteGameImage.png" style="width: 20px; height: 20px; margin-left: 10px;" class="unfavorite-game"></span>
-    <span slot="header" id="favorite-game"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px; margin-right:10px;" class="gameThumb">Favorite Games 4<img src="../../../public/assets/unfavoriteGameImage.png" style="width: 20px; height: 20px; margin-left: 10px;" class="unfavorite-game"></span>
-    <span slot="header" id="favorite-game"><img src="../../../public/assets/fb.png" style="width: 20px; height: 20px; margin-right:10px;" class="gameThumb">Favorite Games 5<img src="../../../public/assets/unfavoriteGameImage.png" style="width: 20px; height: 20px; margin-left: 10px;" class="unfavorite-game"></span>
-  
+    <button class="btn" slot="footer" v-on:click="close()">CLOSE PROFILE</button>
     
-    
-    <button class="btn" slot="header" v-on:click="close()">CLOSE PROFILE</button>
-    <span slot="footer" >I am a footer down here, watch where you're walkin</span>
 </sidebar-menu>
 </section>
 
