@@ -263,6 +263,12 @@ button {
     z-index: 5;
 }
 
+@media only screen and (max-width: 320px) {
+    #game-entry {
+      width: 53vw;
+    }
+  }
+
 span {
     color: #ffffff;
 
@@ -360,7 +366,6 @@ h2 {
         font-size: 1.25rem;
     }
 }
-
 
 .vsm--toggle-btn{
 display: none;

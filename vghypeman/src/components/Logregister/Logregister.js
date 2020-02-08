@@ -91,7 +91,7 @@ export default {
       var request = {
         password: userPassword,
         email: this.userEmail,
-        username: userUsername
+        username: userUsername,
         favoriteArt: "",
         favoriteGame: "",
         picture: ""
