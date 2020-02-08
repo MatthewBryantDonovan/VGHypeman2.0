@@ -31,20 +31,26 @@
 
     @media only screen and (max-width: 556px) {
       .modal {
-        width: 40vw;
+        width: 60vw;
       } 
     }
 
     @media only screen and (max-width: 488px) {
       .modal {
-        width: 50vw;
+        width: 100vw;
       } 
+      #loginStyle, #registerStyle {
+        width: 80vw;
+      }
     }
 
     @media only screen and (max-width: 375px) {
       .modal {
         width: 60vw;
       } 
+      #loginStyle, #registerStyle {
+        width: 80vw;
+      }
     }
     
     .modal-header,
