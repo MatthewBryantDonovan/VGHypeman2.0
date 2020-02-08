@@ -68,6 +68,7 @@
         this.LoggedIn = LoggedIn;
         $(".userBtn").click();
       });
+      window.console.log(process.env.VUE_APP_YOUTUBE_KEY)
     },
     methods: {
       getGame: function () {

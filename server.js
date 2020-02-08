@@ -2,7 +2,8 @@ const express = require('express');
 const mysql = require('mysql2');
 const Sequelize = require('sequelize');
 const PORT = process.env.PORT || 5000;
-const routes = require('./routes')
+const routes = require('./routes');
+require('dotenv').config();
 
 const app = express();
 
