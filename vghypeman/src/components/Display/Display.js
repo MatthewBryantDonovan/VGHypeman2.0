@@ -118,7 +118,7 @@ export default {
       EventBus.$emit("temp-object", tempGameObject);
       EventBus.$emit("favorite-games", this.favoriteGames);
       EventBus.$emit("favorite-arts", this.favoriteArts);
-      axios.put('http://vghypeman.herokuapp.com/api/update/' + this.userId + '/favorite', request).then( res => {
+      axios.put('https://vghypeman.herokuapp.com/api/update/' + this.userId + '/favorite', request).then( res => {
         window.console.log(res.data);        
       })
     },
@@ -145,7 +145,7 @@ export default {
       EventBus.$emit("temp-object", tempGameObject);
       EventBus.$emit("favorite-games", this.favoriteGames);
       EventBus.$emit("favorite-arts", this.favoriteArts);
-      axios.put('http://vghypeman.herokuapp.com/api/update/' + this.userId + '/favorite', request).then( res => {
+      axios.put('https://vghypeman.herokuapp.com/api/update/' + this.userId + '/favorite', request).then( res => {
         window.console.log(res.data);        
       })
     }

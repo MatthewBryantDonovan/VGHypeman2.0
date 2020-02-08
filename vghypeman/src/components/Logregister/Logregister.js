@@ -43,7 +43,7 @@ export default {
         email: this.userEmail
       }
 
-      axios.post('http://vghypeman.herokuapp.com/api/user/login', request).then(res => {
+      axios.post('https://vghypeman.herokuapp.com/api/user/login', request).then(res => {
         if (res.data.error) {
           $('#login-failed').html(res.data.error);
         } else {
@@ -95,7 +95,7 @@ export default {
         username: userUsername
       }
 
-      axios.post('http://vghypeman.herokuapp.com/api/create/profile', request).then(res => {
+      axios.post('https://vghypeman.herokuapp.com/api/create/profile', request).then(res => {
         if (res.data.error) {
           $('#register-failed').html(res.data.error);
         } else {
