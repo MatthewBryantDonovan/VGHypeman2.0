@@ -2,15 +2,7 @@
 
   <div class="modal-backdrop" style="z-index: 55;">
     <div class="modal">
-      <!-- <header class="modal-header">
-        <slot name="header">
-          <h2><strong>VGHYPEMAN</strong></h2>
-
-          <button type="button" class="btn-close" v-on:click="close()">
-            x
-          </button>
-        </slot>
-      </header> -->
+      
       <section class="modal-body" id="modal-big-body">
         <slot name="body">
           <div v-show="LoginShow">
@@ -23,21 +15,21 @@
                 <!-- Begin input field (LOGIN) -->
                 <p id="login-failed"></p>
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 loginField">
                     <input id="login-email" type="email" class="validate" style="color: #C5C6C7;">
                     <label for="login-email">Email</label>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="input-field col s12">
+                  <div class="input-field col s12 loginField">
                     <input id="login-password" type="password" class="validate" style="color: #C5C6C7">
                     <label for="login-password">Password</label>
                   </div>
                 </div>
               </div> <!-- End input field (LOGIN) -->
 
-              <button class="btn left" type="button" v-on:click="display_register">REGISTER ACCOUNT</button>
+              <button class="btn left" type="button" v-on:click="display_register">REGISTER</button>
               <button class="btn right" type="button" v-on:click="logged_in">LOG IN</button>
             </form>
           </div>
@@ -51,21 +43,21 @@
               <!-- Begin input field REGISTER -->
               <p id="register-failed"></p>
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 loginField">
                   <input id="register-username" type="email" class="validate" style="color: #C5C6C7;">
                   <label for="register-username">Username</label>
                 </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 loginField">
                   <input id="register-email" type="email" class="validate" style="color: #C5C6C7;">
                   <label for="register-email">Email</label>
                 </div>
               </div>
 
               <div class="row">
-                <div class="input-field col s12">
+                <div class="input-field col s12 loginField">
                   <input id="register-password" type="password" class="validate" style="color: #C5C6C7;">
                   <label for="register-password">Password</label>
                 </div>
@@ -74,17 +66,11 @@
 
             <!-- End input field REGISTER -->
             <button class="btn left" type="button" v-on:click="display_login()">BACK</button>
-            <button class="btn right" type="button" v-on:click="register_user()">REGISTER ACCOUNT</button>
+            <button class="btn right" type="button" v-on:click="register_user()">REGISTER</button>
           </div>
         </slot>
       </section>
-      <!-- <footer class="modal-footer" id="modal-footer">
-        <slot name="footer">
-          <button type="button" class="btn-green" v-on:click="close()">
-            Close
-          </button>
-        </slot>
-      </footer> -->
+      
     </div>
   </div>
 

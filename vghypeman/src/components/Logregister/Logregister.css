@@ -1,5 +1,5 @@
 #loginStyle, #registerStyle {
-  width: 90%;
+  width: 20vw;
 }
 
 .modal-backdrop {
@@ -20,7 +20,31 @@
       overflow-x: auto;
       display: flex;
       flex-direction: column;
-      width: 25%;
+      width: 25vw;
+    }
+
+    @media only screen and (max-width: 779px) {
+      .modal {
+        width: 35vw;
+      } 
+    }
+
+    @media only screen and (max-width: 556px) {
+      .modal {
+        width: 40vw;
+      } 
+    }
+
+    @media only screen and (max-width: 488px) {
+      .modal {
+        width: 50vw;
+      } 
+    }
+
+    @media only screen and (max-width: 375px) {
+      .modal {
+        width: 60vw;
+      } 
     }
     
     .modal-header,
