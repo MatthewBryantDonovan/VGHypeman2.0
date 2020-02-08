@@ -1,19 +1,19 @@
-<section class="imageupload">
+<section class="imageupload" style="z-index: 999999999999999;">
 
-    <div class="modal-backdrop">
+    <div class="modal-backdrop" style="z-index: 100009549595;">
         <div class="modal modalStyle" id="">
 
-            <section class="modal-body" id="">
-                <button type="button" class="btn-close" v-on:click="close()" style="float: right;">
-                    x
-                </button>
+            <section class="modal-body" id="modal-big-body">
                 <slot name="body">
                     <form>
+                        <p style="text-align: center;">Paste a URL to an image below.</p>
+                            </br>
                         <div class="container" id="loginStyle">
                           <!-- Begin input field (LOGIN) -->
                           <p id="update-image-failed"></p>
                           <div class="row loginField">
                             <div class="input-field col s12">
+                                
                               <input id="update-image" type="text" class="validate" style="color: #C5C6C7;">
                               <label for="update-image">image url</label>
                             </div>
@@ -21,7 +21,7 @@
           
                         </div> <!-- End input field (LOGIN) -->
           
-                        <button class="btn right" type="button" v-on:click="update_image()">LOG IN</button>
+                        <div class="row center"><button class="btn updateBtn" type="button" v-on:click="update_image()">Update</button></div> 
                       </form>
                 </slot>
             </section>
