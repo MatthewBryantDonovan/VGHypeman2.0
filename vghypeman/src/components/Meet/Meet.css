@@ -24,6 +24,7 @@
 }
 
 .meetPic {
+  border: none;
   width: 150px;
   height: auto;
 }
