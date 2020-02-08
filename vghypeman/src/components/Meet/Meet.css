@@ -1,5 +1,14 @@
 #meet-us-modal {
-  width: 55vw;
+  width: 40vw;
+}
+
+@media only screen and (max-width: 600px) {
+  #meet-us-modal {
+    width: 100vw;
+  }
+  .meetPic {
+    width: 10px;
+  }
 }
 
 .meetTitle, .teamNames {
