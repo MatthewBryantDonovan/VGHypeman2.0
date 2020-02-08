@@ -1,7 +1,7 @@
 <template>
   <div class="Home">
     <Landing v-show="LandingShow" />
-    <Display />
+    <Display v-show="!LandingShow"/>
   </div>
 </template>
 
