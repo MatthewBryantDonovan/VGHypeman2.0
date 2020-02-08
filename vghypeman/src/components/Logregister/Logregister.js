@@ -93,8 +93,7 @@ export default {
         email: this.userEmail,
         username: userUsername,
         favoriteArt: "",
-        favoriteGame: "",
-        picture: ""
+        favoriteGame: ""
 
       }
 
@@ -107,6 +106,12 @@ export default {
           EventBus.$emit("close-logregister", this.closeLogregister);
           $('#user-username').html(res.data.username);
           $('#user-email').html(res.data.email);
+
+          var emptyObj = {};
+          EventBus.$emit("user-id", res.data.id);
+          EventBus.$emit("game-object", emptyObj);
+          EventBus.$emit("favorite-games", res.data.favoriteGame);
+          EventBus.$emit("favorite-arts", res.data.favoriteArt);
 
         }
       })

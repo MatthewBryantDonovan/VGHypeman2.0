@@ -59,10 +59,6 @@ export default {
       this.userId = theuserId;
     });
 
-    EventBus.$on("close-gameinfo", closeImageupload => {   
-      this.ImageuploadShow = closeImageupload;
-  });
-
   },
   methods: {
     close() {
@@ -106,6 +102,8 @@ export default {
     },
     display_imageupload: function () {
       this.ImageuploadShow = true;
+      EventBus.$emit("show-imageUpload", this.ImageuploadShow);
+
     }
   }
 }

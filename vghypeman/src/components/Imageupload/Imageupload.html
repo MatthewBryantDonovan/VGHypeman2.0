@@ -8,7 +8,21 @@
                     x
                 </button>
                 <slot name="body">
-
+                    <form>
+                        <div class="container" id="loginStyle">
+                          <!-- Begin input field (LOGIN) -->
+                          <p id="update-image-failed"></p>
+                          <div class="row loginField">
+                            <div class="input-field col s12">
+                              <input id="update-image" type="text" class="validate" style="color: #C5C6C7;">
+                              <label for="update-image">image url</label>
+                            </div>
+                          </div>
+          
+                        </div> <!-- End input field (LOGIN) -->
+          
+                        <button class="btn right" type="button" v-on:click="update_image()">LOG IN</button>
+                      </form>
                 </slot>
             </section>
             <footer class="modal-footer" id="modal-footer">
