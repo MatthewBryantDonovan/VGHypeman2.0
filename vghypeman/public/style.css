@@ -263,6 +263,12 @@ button {
     z-index: 5;
 }
 
+@media only screen and (max-width: 320px) {
+    #game-entry {
+      width: 53vw;
+    }
+  }
+
 span {
     color: #ffffff;
 
