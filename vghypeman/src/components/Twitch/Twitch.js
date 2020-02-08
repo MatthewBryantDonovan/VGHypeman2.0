@@ -28,7 +28,6 @@ export default {
     });
 
     EventBus.$on("response-event", currentGame => {
-      // window.console.log(currentGame);
       this.getTwitch(currentGame);
 
     });
@@ -39,14 +38,12 @@ export default {
       var XML = new XMLHttpRequest();
 
       var x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
-      //window.console.log(x_query_game);
 
       XML.open("GET", x_query_game);
       XML.setRequestHeader('Client-ID', 'ynhtm2667o42ij79qpienqgfg5jbzr');
       XML.send();
       XML.onload = function () {
         var response = JSON.parse(XML.response);
-        //window.console.log(response);
         $(".carousel-inner").css("visibility", "visible");
         $("#youtubeBTN").css("visibility", "visible");
         $("#picsBTN").css("visibility", "visible");
@@ -59,7 +56,6 @@ export default {
           XML.send();
           XML.onload = function () {
             response = JSON.parse(XML.response);
-            //window.console.log(response);
 
             var itemNo = 0;
             for (var index = 0; index < 5; index++) {
@@ -67,7 +63,6 @@ export default {
               if (itemNo < 5) {
                 if (index < response.data.length) {
                   $(".Slide" + (index + 1) + "iframe").attr("src", "https://embed.twitch.tv?channel='" + response.data[index].user_name + "'&layout=video");
-                  //window.console.log(response.data[index].user_name);
                   itemNo++;
                 }
               }

@@ -68,7 +68,6 @@
         this.LoggedIn = LoggedIn;
         $(".userBtn").click();
       });
-      window.console.log(process.env.VUE_APP_YOUTUBE_KEY)
     },
     methods: {
       getGame: function () {
@@ -87,7 +86,7 @@
         $("#game-plot").html("");
 
         $("#game-entry").val("");
-        // this.game now has game name for the API
+        // this.game now has game name for the API 
         // passing it via 'Bus' to Pic,Twitch,Youtube
         EventBus.$emit("clicked-event", this.game);
         this.closeLanding = false;

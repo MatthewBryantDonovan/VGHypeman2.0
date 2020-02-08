@@ -43,7 +43,7 @@ export default {
         email: this.userEmail
       }
 
-      axios.post('http://localhost:5000/api/user/login', request).then(res => {
+      axios.post('https://vghypeman.herokuapp.com/api/user/login', request).then(res => {
         if (res.data.error) {
           $('#login-failed').html(res.data.error);
         } else {
@@ -57,7 +57,6 @@ export default {
           this.favoriteGames = res.data.favoriteGame;
 
           if (res.data.favoriteGame.search($("#the-game-name").text()) > 0){
-            window.console.log("I MADE ITTTTTTT")
             var alwaysFalse = false;
             EventBus.$emit("unfav-enabled", alwaysFalse);
         }
@@ -92,10 +91,14 @@ export default {
       var request = {
         password: userPassword,
         email: this.userEmail,
-        username: userUsername
+        username: userUsername,
+        favoriteArt: "",
+        favoriteGame: "",
+        picture: ""
+
       }
 
-      axios.post('http://localhost:5000/api/create/profile', request).then(res => {
+      axios.post('https://vghypeman.herokuapp.com/api/create/profile', request).then(res => {
         if (res.data.error) {
           $('#register-failed').html(res.data.error);
         } else {

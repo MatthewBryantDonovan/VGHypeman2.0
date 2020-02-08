@@ -64,7 +64,6 @@ export default {
                 method: "GET"
             }).then(function (data0) {
                 this.currentgame = data0.results[0].name;
-                //   window.console.log(data0);
 
 
                 //trying to get igdb working
@@ -78,10 +77,8 @@ export default {
                 //         data: "fields *; where name = " + this.currentgame + ";"
                 //     })
                 //     .then(response => {
-                //         window.console.log(response.data);
                 //     })
                 //     .catch(err => {
-                //         window.console.error(err);
                 //     });
 
 
@@ -161,13 +158,10 @@ export default {
                     jsonp: 'json_callback',
                     url: 'https://www.giantbomb.com/api/search/?format=jsonp&api_key=' + process.env.VUE_APP_GIANT_BOMB_KEY + '&query=' + data0.results[0].name,
                 }).done(function (gbdata) {
-                    //window.console.log(gbdata);
-                    //window.console.log(gbdata.results[0].name);
                     var currentGame = gbdata.results[0].name;
                     $("#game-plot").html(gbdata.results[0].description);
                     EventBus.$emit("response-event", currentGame);
                 }).fail(function () {
-                    //window.console.log("error");
 
                 })
 

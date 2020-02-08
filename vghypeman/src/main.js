@@ -6,6 +6,8 @@ import Youtube from './components/Youtube/index.vue'
 import $ from 'jquery';  // materialize requires jquery for most functionality
 import jQuery from 'jquery';
 import Materialize from 'materialize-css';
+import dotenv from 'dotenv'
+dotenv.config()
 
 // export for others scripts to use
 window.$ = $;
