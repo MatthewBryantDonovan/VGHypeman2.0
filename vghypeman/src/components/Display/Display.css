@@ -70,6 +70,56 @@
       margin-bottom: 30px;
     }
 
+    @media only screen and (max-width: 600px) {
+     
+      .game-name {
+        font-size:10px;
+        
+        
+    }
+
+    .center{
+      height:40px;
+    }
+
+    .favorite-btn{
+      border: none;
+      cursor: pointer;
+      widows: 10px;
+      height:10px;
+      background: transparent; 
+      margin-right: 10px;
+     
+    }
+    .iconButton{
+      border: none;
+      cursor: pointer;
+      width:5px;
+      height:5px;
+      margin-left: 10px;
+      background: transparent; 
+     
+    }
+    iframe, img {
+      height: 40vh;
+      width: 100%;
+      border: 2px solid #45A29E;
+  }
+
+  .iconButton{
+    border: none;
+    cursor: pointer;
+    width:10px;
+    height:10px;
+    margin-left: 10px;
+    background: transparent; 
+    
+   
+  }
+    }
+
+    
+
     .favorite-btn{
       border: none;
       cursor: pointer;
@@ -102,7 +152,7 @@
       height:20px;
       margin-left: 10px;
       background: transparent; 
-      margin-right: 10px;
+      
      
     }
   
