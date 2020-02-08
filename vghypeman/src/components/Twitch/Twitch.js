@@ -55,7 +55,7 @@ export default {
         if (response.data.length != 0) {
           let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
           XML.open("GET", x_query_id);
-          XML.setRequestHeader('Client-ID', 'ynhtm2667o42ij79qpienqgfg5jbzr');
+          XML.setRequestHeader('Client-ID', process.env.VUE_APP_TWITCH_KEY);
           XML.send();
           XML.onload = function () {
             response = JSON.parse(XML.response);

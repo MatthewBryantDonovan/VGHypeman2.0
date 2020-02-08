@@ -38,7 +38,7 @@ export default {
       // youtube ajax call
       $.ajax({
         type: "get",
-        url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=review " + game + "&type=videos&key=AIzaSyDhIq2RbDOejDvlF0ihBgO92LTwp6I1U28",
+        url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=review " + game + "&type=videos&key=" + process.env.VUE_APP_YOUTUBE_KEY,
         success: function (data1) {
           // window.console.log(data1);
           /* window.console.log(data1.items[index].id.videoId); */

@@ -159,7 +159,7 @@ export default {
                     dataType: 'jsonp',
                     crossDomain: true,
                     jsonp: 'json_callback',
-                    url: 'https://www.giantbomb.com/api/search/?format=jsonp&api_key=6ce9922ee0247c661db0e2af89818c4e9441b306&query=' + data0.results[0].name,
+                    url: 'https://www.giantbomb.com/api/search/?format=jsonp&api_key=' + process.env.VUE_APP_GIANT_BOMB_KEY + '&query=' + data0.results[0].name,
                 }).done(function (gbdata) {
                     //window.console.log(gbdata);
                     //window.console.log(gbdata.results[0].name);
