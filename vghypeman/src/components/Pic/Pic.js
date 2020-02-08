@@ -73,9 +73,9 @@ export default {
                 //         method: 'POST',
                 //         headers: {
                 //             'Accept': 'application/json',
-                //             'user-key': "a3bdc2bd665432559f60ba3f27eccf64"
+                //             'user-key': VUE_APP_IGDB_KEY
                 //         },
-                //         data: "fields *; search '" + currentGame + "'; limit 50;"
+                //         data: "fields *; where name = " + this.currentgame + ";"
                 //     })
                 //     .then(response => {
                 //         window.console.log(response.data);
