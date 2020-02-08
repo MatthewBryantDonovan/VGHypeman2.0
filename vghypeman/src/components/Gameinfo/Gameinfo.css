@@ -28,7 +28,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .modal {
+  #gameInfoModal {
     width: 100vw;
   }
 }
