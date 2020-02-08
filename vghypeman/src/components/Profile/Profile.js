@@ -94,7 +94,7 @@ export default {
       EventBus.$emit("favorite-games", this.favoriteGames);
       EventBus.$emit("favorite-arts", this.favoriteArts);
       axios.put('https://vghypeman.herokuapp.com/api/update/' + this.userId + '/favorite', request).then( res => {
-        window.console.log(res.data);        
+        res = 1;       
       })
     }
   }

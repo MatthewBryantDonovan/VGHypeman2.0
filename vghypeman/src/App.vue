@@ -68,10 +68,6 @@
         this.LoggedIn = LoggedIn;
         $(".userBtn").click();
       });
-      window.console.log(process.env.VUE_APP_YOUTUBE_KEY);
-      window.console.log(process.env.VUE_APP_GIANT_BOMB_KEY);
-      window.console.log(process.env.VUE_APP_IGDB_KEY);
-      window.console.log(process.env.VUE_APP_TWITCH_KEY);
     },
     methods: {
       getGame: function () {

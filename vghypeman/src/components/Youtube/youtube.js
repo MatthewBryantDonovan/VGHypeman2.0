@@ -40,8 +40,6 @@ export default {
         type: "get",
         url: "https://www.googleapis.com/youtube/v3/search?part=snippet&q=review " + game + "&type=videos&key=" + process.env.VUE_APP_YOUTUBE_KEY,
         success: function (data1) {
-          // window.console.log(data1);
-          /* window.console.log(data1.items[index].id.videoId); */
 
           var itemNo = 0;
           for (var index = 0; index < data1.items.length; index++) {

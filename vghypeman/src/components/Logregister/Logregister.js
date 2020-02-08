@@ -57,7 +57,6 @@ export default {
           this.favoriteGames = res.data.favoriteGame;
 
           if (res.data.favoriteGame.search($("#the-game-name").text()) > 0){
-            window.console.log("I MADE ITTTTTTT")
             var alwaysFalse = false;
             EventBus.$emit("unfav-enabled", alwaysFalse);
         }
@@ -93,6 +92,10 @@ export default {
         password: userPassword,
         email: this.userEmail,
         username: userUsername
+        favoriteArt: "",
+        favoriteGame: "",
+        picture: ""
+
       }
 
       axios.post('https://vghypeman.herokuapp.com/api/create/profile', request).then(res => {
