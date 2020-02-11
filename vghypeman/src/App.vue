@@ -113,9 +113,7 @@ EventBus.$on("show-imageUpload", ImageuploadShow => {
       close_landing: function () {
         this.closeLanding = !this.closeLanding;
         EventBus.$emit("close-landing", this.closeLanding);
-      },
-
-
+      }
     },
 
     
