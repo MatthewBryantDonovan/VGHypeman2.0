@@ -5,6 +5,17 @@
   .meetTitle {
     font-size: 36px;
   }
+  #meet-us-modal {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .meetTitle {
+    font-size: 36px;
+  }
+  #meet-us-modal {
+    width: 60vw;
+  }
 }
 
 @media only screen and (max-width: 600px) {

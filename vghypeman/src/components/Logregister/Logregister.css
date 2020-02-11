@@ -1,5 +1,9 @@
 #loginStyle, #registerStyle {
-  width: 20vw;
+  width: 40vw;
+}
+
+.loginField{
+  width: 70%;
 }
 
 .modal-backdrop {
@@ -14,42 +18,56 @@
       align-items: center;
     }
     
-    .modal {
+    .modal-logregister {
       /* background: #FFFFFF; */
       box-shadow: 2px 2px 20px 1px;
       overflow-x: auto;
       display: flex;
       flex-direction: column;
-      width: 25vw;
+      width: 60vw;
     }
 
+    @media only screen and (max-width: 950px) {
+      .modal-logregister {
+        width: 60vw;
+      }
+      #loginStyle, #registerStyle {
+        width: 100%;
+      } 
+    }
     @media only screen and (max-width: 779px) {
-      .modal {
-        width: 35vw;
+      .modal-logregister {
+        width: 60vw;
+      }
+      #loginStyle, #registerStyle {
+        width: 100%;
       } 
     }
 
     @media only screen and (max-width: 556px) {
-      .modal {
-        width: 60vw;
-      } 
+      .modal-logregister {
+        width: 100vw;
+      }
+      #loginStyle, #registerStyle {
+        width: 100%;
+      }
     }
 
     @media only screen and (max-width: 488px) {
-      .modal {
+      .modal-logregister {
         width: 100vw;
       } 
       #loginStyle, #registerStyle {
-        width: 80vw;
+        width: 100%;
       }
     }
 
     @media only screen and (max-width: 375px) {
-      .modal {
-        width: 60vw;
+      .modal-logregister {
+        width: 100vw;
       } 
       #loginStyle, #registerStyle {
-        width: 80vw;
+        width: 100%;
       }
     }
     
