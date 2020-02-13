@@ -16,6 +16,8 @@ window.Materialize = Materialize;
 
 Vue.use(VueRouter);
 
+// At the moment the only route needed is home
+// This insures the user experience is seamless
 const routes = [
   { path: '/', component: Home },
   { path: 'youtube', component: Youtube }

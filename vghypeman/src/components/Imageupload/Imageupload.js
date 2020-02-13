@@ -19,15 +19,21 @@ import {
   
     },
     mounted () {
+
+      // Event Bus to update information in real time
       EventBus.$on("user-id", theuserId => {
         this.userId = theuserId;
       });
   
     },
     methods: {
+
+      // Close the image upload component
       close() {
           EventBus.$emit("close-imageupload", this.closeImageupload);
       },
+
+      // Update the image for the users profile
       update_image() {
 
         if($("#update-image").val() == ""){

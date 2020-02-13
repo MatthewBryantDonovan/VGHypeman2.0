@@ -19,6 +19,8 @@ export default {
 
   },
   mounted() {
+
+    // Twitch slick initialization
     $(".twitch-slick").slick({
       // dots: true, FIXME: if we want dots or not
       infinite: true,
@@ -27,6 +29,7 @@ export default {
       cssEase: 'linear'
     });
 
+    // Event Bus's to update information in real time
     EventBus.$on("response-event", currentGame => {
       this.getTwitch(currentGame);
 
@@ -34,6 +37,7 @@ export default {
   },
   methods: {
 
+    // After user searches populate Twitch viewer
     getTwitch: function (game) {
       var XML = new XMLHttpRequest();
 

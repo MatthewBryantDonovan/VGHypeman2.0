@@ -39,6 +39,7 @@ export default {
   mounted () {
     $(".vsm--toggle-btn").attr("style","display: none");
 
+    // Event Bus's to update information in real time
     EventBus.$on("game-object", gameObject => {
       this.gameObject = gameObject;
     });
@@ -61,15 +62,21 @@ export default {
 
   },
   methods: {
+
+    // Close the profile area
     close() {
       EventBus.$emit("close-profile", this.closeProfile);
     },
+
+    // Go to the game when a user clicks its picture
     goToGame(game){
       EventBus.$emit("open-game", game);
       EventBus.$emit("close-landing", this.closeLanding);
       EventBus.$emit("unfav-enabled", this.closeLanding);
 
     },
+
+    // Remove a game from a users favorites
     unfavoriteGame(game, art){
       var tempGameObject = [];
       
@@ -100,6 +107,8 @@ export default {
         return res;       
       })
     },
+
+    // Show the image upload component
     display_imageupload: function () {
       this.ImageuploadShow = true;
       EventBus.$emit("show-imageUpload", this.ImageuploadShow);

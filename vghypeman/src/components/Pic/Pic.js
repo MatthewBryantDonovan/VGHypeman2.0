@@ -27,6 +27,8 @@ export default {
     },
     computed: {},
     mounted() {
+
+        // Pic slick initialization
         $(".pic-slick").slick({
             // dots: true, FIXME: if we want dots or not
             infinite: true,
@@ -35,6 +37,7 @@ export default {
             cssEase: 'linear'
         });
 
+        // Event Bus's to update information in real time
         EventBus.$on("clicked-event", game => {
             this.getGameWebs(game);
         });
@@ -50,6 +53,7 @@ export default {
     },
     methods: {
 
+        // After user searches populate Pic Viewer 
         getGameWebs: function (game) {
             var favoriteAccess = true;
             EventBus.$emit("favorite-access", favoriteAccess);

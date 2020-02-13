@@ -23,18 +23,26 @@ export default {
 
   },
   methods: {
+
+    // Close the Logregister component
     close() {
       EventBus.$emit("close-logregister", this.closeLogregister);
 
     },
+
+    // Display the registration modal
     display_register: function () {
       this.LoginShow = false;
       this.RegisterShow = true;
     },
+
+    // Display the log in modal
     display_login: function () {
       this.LoginShow = true;
       this.RegisterShow = false;
     },
+
+    // Log the user in or display error
     logged_in: function () {
       var userPassword = $('#login-password').val().trim();
       this.userEmail = $('#login-email').val().trim();
@@ -82,6 +90,8 @@ export default {
         }
       })
     },
+
+    // Register the user or display error
     register_user: function () {
 
       var userUsername = $('#register-username').val().trim();

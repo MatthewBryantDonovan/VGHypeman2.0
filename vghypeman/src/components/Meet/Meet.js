@@ -19,6 +19,8 @@ export default {
 
   },
   methods: {
+
+    // Close the meet the team modal
     close() {
       EventBus.$emit("close-meet", this.closeMeet);
     }
