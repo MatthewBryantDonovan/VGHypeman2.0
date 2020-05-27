@@ -36,32 +36,16 @@ export default {
 
     });
 
-    // Event Bus to update information in real time
-    // EventBus.$on("twitch-token", thetwitchToken => {
-    //   this.twitchToken = thetwitchToken;
-    //   $(".twitch-name").html(this.twitchToken);
-    // });
   },
   methods: {
 
     // After user searches populate Twitch viewer
     getTwitch: function (game) {
-      // var XML = new XMLHttpRequest();
-
-      // var x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
-
-      // XML.open("GET", x_query_game);
-      // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
-      // XML.send();
-      // XML.onload = function () {
-
       let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id=pq3qrn3hpvnnv2tgjy5a0jp9cq26bh&client_secret=xyvmv56555tbcul9erdg3x3aet2n8t&grant_type=client_credentials";
       axios.post((x_query_getOauth))
       .then(function (response) {
 
       var twitchToken = response.data.access_token;
-
-      $(".twitch-name").html(twitchToken);
 
       let x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
       axios.get((x_query_game), {
@@ -76,14 +60,8 @@ export default {
         $("#youtubeBTN").css("visibility", "visible");
         $("#picsBTN").css("visibility", "visible");
         $("#twitchBTN").css("visibility", "visible");
-        $(".twitch-data1").html(response.data);
 
         if (response.data.data.length != 0) {
-          // let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
-          // XML.open("GET", x_query_id);
-          // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
-          // XML.send();
-          // XML.onload = function () {
             let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data.data[0].id + "&first=5";
             axios.get((x_query_id), {
               headers: {
@@ -92,16 +70,14 @@ export default {
               }
             })
             .then(function (response) {
-              $(".twitch-data2").html(response.data);
-            // response = JSON.parse(XML.response);
 
             var itemNo = 0;
             for (var index = 0; index < 5; index++) {
 
               if (itemNo < 5) {
                 if (index < response.data.data.length) {
-                  $(".twitch-data"[index]).html(response.data.data[index].user_name);
-                  $(".Slide" + (index + 1) + "iframe").attr("src", "https://embed.twitch.tv?channel='" + response.data.data[index].user_name + "'&layout=video");
+
+                  $(".Slide" + (index + 1) + "iframe").attr("src", "https://embed.twitch.tv?channel=" + response.data.data[index].user_name + "&layout=video");
                   itemNo++;
                 }
               }
