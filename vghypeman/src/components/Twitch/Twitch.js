@@ -14,7 +14,6 @@ export default {
   props: [],
   data() {
     return {
-      twitchToken: ""
     }
   },
   computed: {
@@ -60,14 +59,14 @@ export default {
       axios.post((x_query_getOauth))
       .then(function (response) {
 
-      this.twitchToken = response.data.access_token;
+      var twitchToken = response.data.access_token;
 
-      $(".twitch-name").html(this.twitchToken);
+      $(".twitch-name").html(twitchToken);
 
       let x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
       axios.get((x_query_game), {
         headers: {
-          'Authorization': 'Bearer ' + this.twitchToken,
+          'Authorization': 'Bearer ' + twitchToken,
           'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh"
         }
       })
@@ -88,7 +87,7 @@ export default {
             let x_query_id = "https://api.twitch.tv/helix/games?game_id=" + response.data.data[0].id + "&first=5";
             axios.get((x_query_id), {
               headers: {
-                'Authorization': 'Bearer ' + this.twitchToken,
+                'Authorization': 'Bearer ' + twitchToken,
                 'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh"
               }
             })
