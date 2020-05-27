@@ -38,10 +38,10 @@ export default {
     });
 
     // Event Bus to update information in real time
-    EventBus.$on("twitch-token", thetwitchToken => {
-      this.twitchToken = thetwitchToken;
-      $(".twitch-name").html(this.twitchToken);
-    });
+    // EventBus.$on("twitch-token", thetwitchToken => {
+    //   this.twitchToken = thetwitchToken;
+    //   $(".twitch-name").html(this.twitchToken);
+    // });
   },
   methods: {
 
@@ -55,6 +55,15 @@ export default {
       // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
       // XML.send();
       // XML.onload = function () {
+
+      let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id="+process.env.TWITCH_API_KEY+"&client_secret="+process.env.TWITCH_SECRET+"&grant_type=client_credentials";
+      axios.post((x_query_getOauth))
+      .then(function (response) {
+
+      this.twitchToken = response.data.access_token;
+
+      $(".twitch-name").html(this.twitchToken);
+
       let x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
       axios.get((x_query_game), {
         headers: {
@@ -99,6 +108,7 @@ export default {
             }
           })
         }
+      })
       })
     }
   }

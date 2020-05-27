@@ -82,10 +82,10 @@ export default {
           var theuserId = res.data.id;
           EventBus.$emit("user-id", theuserId);
           
-          var thetwitchToken = res.data.twitchToken;
-          $(".twitch-a").html(thetwitchToken);
+          // var thetwitchToken = res.data.twitchToken;
+          // $(".twitch-a").html(thetwitchToken);
           
-          EventBus.$emit("twitch-token", thetwitchToken);
+          // EventBus.$emit("twitch-token", thetwitchToken);
           
 
           var LoggedIn = true;

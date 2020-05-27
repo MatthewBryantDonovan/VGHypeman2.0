@@ -23,18 +23,18 @@ router.post("/api/user/login", function (req, res) {
       } else {
         dbUser.dataValues.password = "NO PASSWORD HERE";
 
-        let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id="+process.env.TWITCH_API_KEY+"&client_secret="+process.env.TWITCH_SECRET+"&grant_type=client_credentials";
-        axios.post((x_query_getOauth))
-        .then(function (response) {
+        // let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id="+process.env.TWITCH_API_KEY+"&client_secret="+process.env.TWITCH_SECRET+"&grant_type=client_credentials";
+        // axios.post((x_query_getOauth))
+        // .then(function (response) {
 
-            dbUser.twitchToken = response.data.access_token;
-            console.log(dbUser.twitchToken);
+        //     dbUser.twitchToken = response.data.access_token;
+            // console.log(dbUser.twitchToken);
             
             res.json(dbUser);
-        }).catch( function (err){
-            res.status(422).json(err)
-            res.json(dbUser);
-        });
+        // }).catch( function (err){
+        //     res.status(422).json(err)
+        //     res.json(dbUser);
+        // });
         
       }
   });
