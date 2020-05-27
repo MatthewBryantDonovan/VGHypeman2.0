@@ -13,6 +13,7 @@ export default {
   props: [],
   data() {
     return {
+      twitchToken: ""
     }
   },
   computed: {
@@ -34,6 +35,11 @@ export default {
       this.getTwitch(currentGame);
 
     });
+
+    // Event Bus to update information in real time
+    EventBus.$on("user-id", thetwitchToken => {
+      this.twitchToken = thetwitchToken;
+    });
   },
   methods: {
 
@@ -44,7 +50,7 @@ export default {
       var x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
 
       XML.open("GET", x_query_game);
-      XML.setRequestHeader('Client-ID', 'ynhtm2667o42ij79qpienqgfg5jbzr');
+      XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
       XML.send();
       XML.onload = function () {
         var response = JSON.parse(XML.response);
@@ -56,7 +62,8 @@ export default {
         if (response.data.length != 0) {
           let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
           XML.open("GET", x_query_id);
-          XML.setRequestHeader('Client-ID', process.env.VUE_APP_TWITCH_KEY);
+          
+          XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
           XML.send();
           XML.onload = function () {
             response = JSON.parse(XML.response);

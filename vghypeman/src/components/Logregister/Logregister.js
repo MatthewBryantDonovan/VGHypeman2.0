@@ -52,6 +52,7 @@ export default {
       }
 
       axios.post('https://vghypeman.herokuapp.com/api/user/login', request).then(res => {
+        
         if (res.data.error) {
           $('#login-failed').html(res.data.error);
         } else {
@@ -80,6 +81,9 @@ export default {
           EventBus.$emit("favorite-arts", this.favoriteArts);
           var theuserId = res.data.id;
           EventBus.$emit("user-id", theuserId);
+          
+          var thetwitchToken = res.data.thetwitchToken;
+          EventBus.$emit("twitchToken", thetwitchToken);
           
 
           var LoggedIn = true;
