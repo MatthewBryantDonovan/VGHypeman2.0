@@ -28,6 +28,9 @@ router.post("/api/user/login", function (req, res) {
         .then(function (response) {
 
             dbUser.twitchToken = response.data.access_token;
+            console.log(response.data.access_token + " = token ACTUAL");
+            console.log(dbUser.twitchToken + " = db token");
+            
             res.json(dbUser);
         }).catch( function (err){
             res.status(422).json(err)
