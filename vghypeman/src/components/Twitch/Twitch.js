@@ -38,9 +38,8 @@ export default {
     });
 
     // Event Bus to update information in real time
-    EventBus.$on("user-id", thetwitchToken => {
+    EventBus.$on("twitch-token", thetwitchToken => {
       this.twitchToken = thetwitchToken;
-      $(".twitch-token").html(this.twitchToken);
     });
   },
   methods: {
