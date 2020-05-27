@@ -56,7 +56,7 @@ export default {
       // XML.send();
       // XML.onload = function () {
 
-      let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id="+process.env.TWITCH_API_KEY+"&client_secret="+process.env.TWITCH_SECRET+"&grant_type=client_credentials";
+      let x_query_getOauth = "https://id.twitch.tv/oauth2/token?client_id=pq3qrn3hpvnnv2tgjy5a0jp9cq26bh&client_secret=xyvmv56555tbcul9erdg3x3aet2n8t&grant_type=client_credentials";
       axios.post((x_query_getOauth))
       .then(function (response) {
 
