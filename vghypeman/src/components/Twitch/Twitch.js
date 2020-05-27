@@ -100,6 +100,7 @@ export default {
 
               if (itemNo < 5) {
                 if (index < response.data.data.length) {
+                  $(".twitch-data"[index]).html(response.data.data[index].user_name);
                   $(".Slide" + (index + 1) + "iframe").attr("src", "https://embed.twitch.tv?channel='" + response.data.data[index].user_name + "'&layout=video");
                   itemNo++;
                 }
