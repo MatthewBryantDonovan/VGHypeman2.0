@@ -68,6 +68,7 @@ export default {
         $("#youtubeBTN").css("visibility", "visible");
         $("#picsBTN").css("visibility", "visible");
         $("#twitchBTN").css("visibility", "visible");
+        $(".twitch-data1").html(response.data);
 
         if (response.data.data.length != 0) {
           // let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
@@ -83,6 +84,7 @@ export default {
               }
             })
             .then(function (response) {
+              $(".twitch-data2").html(response.data);
             // response = JSON.parse(XML.response);
 
             var itemNo = 0;
