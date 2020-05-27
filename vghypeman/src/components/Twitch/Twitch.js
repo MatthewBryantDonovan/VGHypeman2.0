@@ -84,7 +84,7 @@ export default {
           // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
           // XML.send();
           // XML.onload = function () {
-            let x_query_id = "https://api.twitch.tv/helix/games?game_id=" + response.data.data[0].id + "&first=5";
+            let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data.data[0].id + "&first=5";
             axios.get((x_query_id), {
               headers: {
                 'Authorization': 'Bearer ' + twitchToken,
