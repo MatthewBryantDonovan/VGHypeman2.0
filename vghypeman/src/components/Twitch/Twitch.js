@@ -4,6 +4,7 @@ import {
   EventBus
 } from "../event-bus";
 import "../../../node_modules/slick-carousel/slick/slick.css";
+import axios from '../../../node_modules/axios/dist/axios.js'
 
 export default {
   name: 'twitch',
@@ -45,28 +46,43 @@ export default {
 
     // After user searches populate Twitch viewer
     getTwitch: function (game) {
-      var XML = new XMLHttpRequest();
+      // var XML = new XMLHttpRequest();
 
-      var x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
+      // var x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
 
-      XML.open("GET", x_query_game);
-      XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
-      XML.send();
-      XML.onload = function () {
-        var response = JSON.parse(XML.response);
+      // XML.open("GET", x_query_game);
+      // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
+      // XML.send();
+      // XML.onload = function () {
+      let x_query_game = "https://api.twitch.tv/helix/games?name=" + (game);
+      axios.get((x_query_game), {
+        headers: {
+          'Authorization': 'Bearer ' + this.twitchToken,
+          'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh"
+        }
+      })
+      .then(function (response) {
+        // var response = JSON.parse(XML.response);
         $(".carousel-inner").css("visibility", "visible");
         $("#youtubeBTN").css("visibility", "visible");
         $("#picsBTN").css("visibility", "visible");
         $("#twitchBTN").css("visibility", "visible");
 
         if (response.data.length != 0) {
-          let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
-          XML.open("GET", x_query_id);
-          
-          XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
-          XML.send();
-          XML.onload = function () {
-            response = JSON.parse(XML.response);
+          // let x_query_id = "https://api.twitch.tv/helix/streams/?game_id=" + response.data[0].id + "&first=5";
+          // XML.open("GET", x_query_id);
+          // XML.setRequestHeader({'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh", 'Authorization': 'Bearer ' + this.twitchToken});
+          // XML.send();
+          // XML.onload = function () {
+            let x_query_id = "https://api.twitch.tv/helix/games?game_id=" + response.data[0].id + "&first=5";
+            axios.get((x_query_id), {
+              headers: {
+                'Authorization': 'Bearer ' + this.twitchToken,
+                'Client-ID': "pq3qrn3hpvnnv2tgjy5a0jp9cq26bh"
+              }
+            })
+            .then(function (response) {
+            // response = JSON.parse(XML.response);
 
             var itemNo = 0;
             for (var index = 0; index < 5; index++) {
@@ -78,9 +94,9 @@ export default {
                 }
               }
             }
-          }
+          })
         }
-      }
+      })
     }
   }
 }
