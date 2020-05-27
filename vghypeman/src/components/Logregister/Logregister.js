@@ -82,7 +82,7 @@ export default {
           var theuserId = res.data.id;
           EventBus.$emit("user-id", theuserId);
           
-          var thetwitchToken = res.data.thetwitchToken;
+          var thetwitchToken = res.data.twitchToken;
           EventBus.$emit("twitch-token", thetwitchToken);
           
 
